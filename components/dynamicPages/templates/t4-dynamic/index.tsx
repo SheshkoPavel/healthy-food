@@ -70,7 +70,7 @@ export const TemplateT4Dynamic = () => {
 
   return (
     <>
-      <T4OverviewSection />
+      {/* <T4OverviewSection /> */}
 
       {pageData.main_content
         .filter((content: any) => {
