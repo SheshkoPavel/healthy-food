@@ -12,7 +12,7 @@ const Stack: any = StackStack({
   },
 });
 
-Stack.setHost("api.contentstack.io")
+// Stack.setHost("azure-eu-api.contentstack.com")
 
 const getPageData = async (content_type_uid: string, uid: string) => {
   let content: any[] = [];
@@ -382,6 +382,8 @@ const getContentstackContentByUrl = async (content_type_uid: string, url: string
 
 const getPageEntityUsingSDK = (urlWithQuery: string, isAuthorized: boolean) => {
   const url = (urlWithQuery || '').split('?')[0]
+
+  console.log(url)
 
   return Promise.all([
     getContentstackContentByUrl('page_type_1', url),
