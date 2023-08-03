@@ -11,7 +11,7 @@ export const ImageComponent = (props: any) => {
     ...rest,
     src: src
       ? src
-      : (data && data.image && data.image.url) || '/assets/img/DacDefaultImage.png',
+      : (data && data.image && data.image.url) || '/assets/img/no-image-icon.png',
     alt: resultedAlt
   }
 
