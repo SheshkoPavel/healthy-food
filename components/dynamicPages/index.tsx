@@ -13,7 +13,7 @@ import { appState } from '@/store';
 
 import {
   TemplateT1Dynamic,
-  TemplateT4Dynamic,
+  FoodHome,
   TemplateT5Dynamic,
   TemplateT6Dynamic,
   TemplateT13Dynamic,
@@ -54,7 +54,7 @@ export const DynamicPage = () => {
   const { content_type_uid, uid } = pageData;
 
   if (content_type_uid === 'page_type_1') {
-    return <TemplateT4Dynamic />
+    return <FoodHome />
   }
 
 
