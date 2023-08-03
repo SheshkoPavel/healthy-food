@@ -179,9 +179,9 @@ const getPageData = async (content_type_uid: string, uid: string) => {
   // .toJSON()
 
   await Query.fetch()
-    .then(function success(entry) {
+    .then(function success(entry: any) {
       content = entry.toJSON();
-    }, function error(err) {
+    }, function error(err: any) {
       // err object
     });
 
@@ -193,9 +193,9 @@ const getContentstackContent = async (contentType: string, entry: string) => {
 
   const Query = Stack.ContentType(contentType).Entry(entry);
   await Query.fetch()
-    .then(function success(entry) {
+    .then(function success(entry: any) {
       content = entry.toJSON();
-    }, function error(err) {
+    }, function error(err: any) {
       // err object
     });
 
@@ -369,7 +369,7 @@ const getContentstackContentByUrl = async (content_type_uid: string, url: string
     .find()
 
   await Query
-    .then(function success(entry) {
+    .then(function success(entry: any) {
       content = entry[0].map((elem: any) => {
         return { ...elem, content_type_uid }
       });
@@ -377,7 +377,7 @@ const getContentstackContentByUrl = async (content_type_uid: string, url: string
         // throw new Error('Not found')
       }
 
-    }, function error(err) {
+    }, function error(err: any) {
       // err object
     });
 
