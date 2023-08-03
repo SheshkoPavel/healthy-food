@@ -30,6 +30,13 @@
     }
   }
 
+  &--bg-light {
+    background-color: #f1f8f5;
+  }
+   &--bg-dark {
+    background-color: lightblue;
+  }
+
   @include respond-to(tablet-l) {
     padding-top: 9.5rem;
     // overflow-x: hidden;

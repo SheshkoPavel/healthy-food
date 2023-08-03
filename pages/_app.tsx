@@ -58,6 +58,12 @@ export default function App({ Component, pageProps }: AppProps) {
   const className = classNames('l-layout',
     pageProps.showLayoutPattern && 'l-layout--bg-pattern',
   )
+  const theme = pageProps.contentStack?.global_settings?.theme;
+
+  const fullClassName = classNames(className,
+    theme === 'light' && 'l-layout--bg-light',
+    theme === 'dark' && 'l-layout--bg-dark',
+  );
 
   const { title: seoTitle, description, canonical = {}, og_tags = [], noindex, nofollow }: SEO = pageProps?.contentStack?.pageData?.seo || {};
   const { favicon }: GlobalSettings = pageProps?.contentStack?.global_settings || {};
@@ -95,7 +101,7 @@ export default function App({ Component, pageProps }: AppProps) {
         {!noindex && nofollow && <meta name="robots" content="nofollow" />}
       </Head>
       {/* add className l-layout--bg-pattern for t1 */}
-      <div className={className} ref={ref}>
+      <div className={fullClassName} ref={ref}>
         <Loader />
         <Modals />
         <Notifications />
