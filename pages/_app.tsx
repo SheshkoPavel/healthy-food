@@ -21,18 +21,22 @@ import '@/styles/calendar/styles.scss';
 
 import ContentstackLivePreview from '@contentstack/live-preview-utils'
 
-ContentstackLivePreview.init({
-  enable: true,
-  ssr: true,
-  stackDetails: {
-    apiKey: process.env.CONTENTSTACK_API_KEY
-  }
-});
+ContentstackLivePreview.init();
+
+console.log('init 123')
 
 const fav = '/favicon.ico';
 
 export default function App({ Component, pageProps }: AppProps) {
   const ref = useRef<HTMLDivElement>(null);
+
+
+  useEffect(() => {
+    window.addEventListener('message', (e) => {
+      const { data, from, type } = e.data
+      console.log(e)
+    });
+  }, [])
 
   useEffect(() => {
     console.log(pageProps);
