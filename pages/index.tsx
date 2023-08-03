@@ -20,5 +20,5 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   if(context.query){
     Stack.livePreviewQuery(context.query)
   }
-  return getDynamicServerSideProps(context);
+  return await getDynamicServerSideProps(context);
 };

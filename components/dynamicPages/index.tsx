@@ -57,6 +57,10 @@ export const DynamicPage = () => {
     return <FoodHome />
   }
 
+  if (content_type_uid === 'page_type_2') {
+    return <TemplateT6Dynamic />
+  }
+
 
   return (
     <div>
@@ -72,7 +76,7 @@ const checkIfAuthorized = (context: Context) => {
 export const getDynamicServerSideProps: GetServerSideProps = async (context) => {
   const isAuthorized = checkIfAuthorized(context);
 
-  return getPageEntityUsingSDK(context.resolvedUrl, isAuthorized)
+  return await getPageEntityUsingSDK(context.resolvedUrl, isAuthorized)
     .then((res: any) => {
       const { data, error } = res;
 
