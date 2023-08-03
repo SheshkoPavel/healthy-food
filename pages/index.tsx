@@ -8,5 +8,5 @@ export default function Component(props: any) {
 }
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
-  return getDynamicServerSideProps(context);
+  return await getDynamicServerSideProps(context);
 };
