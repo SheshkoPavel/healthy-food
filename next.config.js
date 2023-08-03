@@ -17,12 +17,6 @@ const nextConfig = {
         pathname: '**',
         // pathname: '/media/**',
       },
-      {
-        protocol: 'https',
-        hostname: process.env.IMAGES_HOST_NAME || '',
-        // port: '',
-        pathname: '/api/functions/**/**',
-      },
     ],
   },
 }
