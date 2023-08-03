@@ -19,6 +19,12 @@ import { GlobalSettings, SEO } from '@/types';
 import '@/styles/styles.scss';
 import '@/styles/calendar/styles.scss';
 
+import ContentstackLivePreview from '@contentstack/live-preview-utils'
+
+ContentstackLivePreview.init({enable: true,ssr: true, stackDetails: {
+  apiKey: process.env.CONTENTSTACK_API_KEY
+}});
+
 const fav = '/favicon.ico';
 
 export default function App({ Component, pageProps }: AppProps) {

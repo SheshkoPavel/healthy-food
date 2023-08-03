@@ -7,18 +7,12 @@ const Stack: any = StackStack({
   environment: process.env.ENVIRONMENT,
   live_preview: {
     host: 'api.contentstack.io',
-    management_token: 'cs6c9584d99f6aac5f4163f503',
+    management_token: process.env.LIVE_PREVIEW_MANAGEMENT_TOKEN,
     enable: true,
   },
 });
 
-import ContentstackLivePreview from "@contentstack/live-preview-utils";
-ContentstackLivePreview.init();
-
-// import ContentstackLivePreview from "@contentstack/live-preview-utils";
-// ContentstackLivePreview.init({
-//     stackSdk: Stack,
-//    });
+Stack.setHost("api.contentstack.io")
 
 const getPageData = async (content_type_uid: string, uid: string) => {
   let content: any[] = [];
