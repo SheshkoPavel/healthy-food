@@ -10,8 +10,8 @@ export default function Component(props: any) {
 }
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
-  if(context.query){
-    Stack.livePreviewQuery(context.query)
-  }
+  // if(context.query){
+  //   Stack.livePreviewQuery(context.query)
+  // }
   return await getDynamicServerSideProps(context);
 };
