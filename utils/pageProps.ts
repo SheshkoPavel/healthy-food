@@ -139,6 +139,7 @@ export const getPageProps = (object: any) => {
       return {
         props: {
           ...res,
+          env: process.env.ENVIRONMENT,
           errors,
         },
       };

@@ -15,6 +15,7 @@ import {
 
 const getSectionComponent = (content: T4MainContent) => {
   const {
+    overview,
     featured,
     club_contact,
     quote,
@@ -23,6 +24,10 @@ const getSectionComponent = (content: T4MainContent) => {
     filtered_entry_summary_list,
     cross_linked_content,
   } = content;
+
+  if (overview) {
+    return <T4OverviewSection data={overview} />
+  }
 
   if (featured) {
     return <T4FeaturedSection data={featured} />
@@ -63,11 +68,11 @@ export const FoodHome = () => {
 
   if (!pageData) { return <div>Error get data from server</div> }
 
-  const isOverviewVisible = pageData.overview && pageData.overview.visible;
+  // const isOverviewVisible = pageData.overview && pageData.overview.visible;
 
   return (
     <>
-      <T4OverviewSection />
+      {/* <T4OverviewSection /> */}
 
       {pageData.main_content
         .filter((content: any) => {
@@ -77,7 +82,7 @@ export const FoodHome = () => {
         .map((content: any, index: number) => {
           const { section_anchor = null } = content.filtered_entry_summary_list || {}
 
-          const showDivider = index === 0 && !isOverviewVisible
+          const showDivider = index === 0 // && !isOverviewVisible
             ? false
             : true
 

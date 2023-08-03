@@ -98,6 +98,7 @@ export interface T4CrossLinkedContentMainContent {
 }
 
 export interface T4MainContent {
+  overview?: any;
   featured?: T4FeaturedMainContent;
   club_contact?: T4ClubContactMainContent;
   quote?: T4QuoteMainContent;
