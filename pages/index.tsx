@@ -15,6 +15,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
       pageData: getPageData('page_type_1', 'bltb615f6799c36218b'),
       global_settings: getContentstackContent('global_settings', 'blt563bde79f5f953fc'),
     },
+    env: process.env.ENVIRONMENT,
     context,
   });
 };
