@@ -378,6 +378,7 @@ const getPageEntityUsingSDK = (urlWithQuery: string, isAuthorized: boolean) => {
 
   return Promise.all([
     getContentstackContentByUrl('page_type_1', url),
+    getContentstackContentByUrl('page_type_2', url),
   ])
     .then((res) => {
       const result = res.reduce((acc, el) => {
