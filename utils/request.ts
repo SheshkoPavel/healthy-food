@@ -3,7 +3,6 @@ import qs from 'querystring';
 
 import { hostURL, authAPIKey, functionBaseUrl, memberAPIKey } from '@/constants'
 import { appState } from '@/store'
-import { logout } from '@/services'
 
 const defaultTimeout = 30000;
 
@@ -93,7 +92,7 @@ export const withLoaderAndErrorHandling = (promise: any) => {
   return promise
     .catch((err: any) => {
       if (err.response.status === 401){
-        logout();
+        console.log('Some errors <-------');
       } else {
         return appState.showErrorNotification(err.message);
       }
