@@ -1,0 +1,83 @@
+.c-modal {
+  position: relative;
+  width: 83.33%;
+  padding: (12 * $indent) (26 * $indent);
+  background-color: $color-bg;
+
+  @include respond-to(mobile) {
+    width: calc(100% - 2 * (6 * $indent));
+    padding: (18 * $indent) (6 * $indent) (12 * $indent);
+  }
+}
+
+.c-modal__action-close {
+  position: absolute;
+  top: 8 * $indent;
+  right: 8 * $indent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  background-color: $color-primary-slate;
+  cursor: pointer;
+
+  &-icon {
+    margin: 0;
+    background-color: $color-primary-white;
+  }
+
+  @include respond-to(mobile) {
+    top: 6 * $indent;
+    right: 6 * $indent;
+  }
+}
+
+.c-modal__title {
+  margin-bottom: 6 * $indent;
+  color: $color-dark-slate;
+  @include type-headline-4;
+
+  @include respond-to(mobile) {
+    @include type-headline-5;
+  }
+}
+
+.c-modal__subtitle {
+  margin-bottom: 6 * $indent;
+  color: $color-dark-slate--body;
+  @include type-headline-5;
+
+  @include respond-to(mobile) {
+    @include type-headline-6;
+  }
+}
+
+.c-modal__description {
+  margin-bottom: 6 * $indent;
+  color: $color-primary-black;
+  @include type-paragraph-l;
+
+  @include respond-to(mobile) {
+    color: $color-dark-slate--body;
+    @include type-paragraph-m;
+  }
+}
+
+.c-modal__actions {
+  display: flex;
+  gap: 6 * $indent;
+  justify-content: center;
+
+  @include respond-to(mobile) {
+    gap: 2 * $indent;
+    flex-direction: column;
+  }
+}
+
+.c-modal__action {
+  @include respond-to(mobile) {
+    width: 100%;
+  }
+}

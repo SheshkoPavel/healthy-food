@@ -1,0 +1,108 @@
+.c-complex-card {
+  display: flex;
+  gap: 10 * $indent;
+  justify-content: space-between;
+  padding: (6 * $indent) 0;
+  aspect-ratio: 4 / 1;
+  border-top: 1px solid $color-primary-clay;
+
+  &:last-child {
+    border-bottom: 1px solid $color-primary-clay;
+  }
+
+  @include respond-to(tablet-l) {
+    flex-direction: column;
+    gap: 6 * $indent;
+  }
+}
+
+.c-complex-card__main-info {
+  width: calc(60% - (10 * $indent) / 2);
+  display: flex;
+  gap: 6 * $indent;
+
+  @include respond-to(tablet-l) {
+    width: 100%;
+  }
+}
+
+.c-complex-card__main-info .c-complex-card__image-link-wrapper {
+  width: calc(40% - (6 * $indent) / 2);
+}
+
+.c-complex-card__type {
+  width: calc(60% - (6 * $indent) / 2);
+  padding: (4 * $indent) 0;
+}
+
+.c-complex-card__title-link-wrapper {
+  text-decoration: none;
+}
+
+.c-complex-card__title {
+  margin-bottom: 4 * $indent;
+  color: $color-dark-slate;
+  @include type-headline-4;
+}
+
+.c-complex-card__tag {
+  margin-bottom: 4 * $indent;
+  color: $color-primary-slate--dark;
+  // text-transform: capitalize;
+  @include type-paragraph-s;
+}
+
+.c-complex-card__features-list {
+  display: flex;
+  gap: 2 * $indent;
+  flex-direction: column;
+}
+
+.c-complex-card__feature {
+  display: flex;
+  gap: 2 * $indent;
+  align-items: center;
+  color: $color-dark-slate--body;
+  // text-transform: capitalize;
+  @include type-paragraph-s;
+}
+
+.c-complex-card__feature .c-complex-card__feature-icon {
+  width: 1.6rem;
+  flex-shrink: 0;
+  background-color: $color-primary-slate;
+}
+
+.c-complex-card__contact-info {
+  width: calc(40% - (10 * $indent) / 2);
+  padding: (4 * $indent) (6 * $indent) (6 * $indent);
+  background-color: $color-primary-sandstone--light;
+  overflow: hidden;
+
+  @include respond-to(tablet-l) {
+    width: 100%;
+  }
+}
+
+.c-complex-card__contact-info-section {
+  margin-bottom: 8 * $indent;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.c-complex-card__contact-info-label {
+  margin-bottom: 2 * $indent;
+  color: $color-dark-slate--body;
+  // text-transform: capitalize;
+  @include type-paragraph-s;
+}
+
+.c-complex-card__contact-info-section .c-complex-card__contact-info-email {
+  width: auto;
+  min-width: 0;
+  max-width: fit-content;
+  font-size: 1.4rem;
+  @include type-overflow;
+}

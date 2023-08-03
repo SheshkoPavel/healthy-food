@@ -1,0 +1,77 @@
+.c-divider {
+  width: calc(100% + 2 * 10rem);
+  height: 1px;
+  margin: (24 * $indent) -10rem;
+  background-color: $color-primary-slate--medium;
+
+  &--transparent {
+    background-color: transparent;
+  }
+
+  @include respond-to(tablet) {
+    width: calc(100% + 2 * (12 * $indent));
+    margin: (18 * $indent) (-12 * $indent);
+  }
+
+  @include respond-to(mobile) {
+    width: calc(100% + 2 * (6 * $indent));
+    margin: (18 * $indent) (-6 * $indent);
+  }
+
+  &--decreased {
+    margin: (8 * $indent) -10rem;
+
+    @include respond-to(mobile) {
+      width: calc(100% + 2 * (6 * $indent));
+      margin: (8 * $indent) (-6 * $indent);
+    }
+  }
+
+  &--top {
+    margin: (24 * $indent) -10rem 0;
+
+    @include respond-to(tablet) {
+      margin: (18 * $indent) (-12 * $indent) 0;
+    }
+
+    @include respond-to(mobile) {
+      margin: (18 * $indent) (-6 * $indent) 0;
+    }
+  }
+
+  &--bottom {
+    margin: 0 -10rem (24 * $indent);
+
+    @include respond-to(tablet) {
+      margin: 0 (-12 * $indent) (18 * $indent);
+    }
+
+    @include respond-to(mobile) {
+      margin: 0 (-6 * $indent) (18 * $indent);
+    }
+  }
+
+  &--decreased-t1 {
+    margin: (15 * $indent) -10rem;
+
+    @include respond-to(tablet) {
+      margin: (6 * $indent) (-12 * $indent);
+    }
+
+    @include respond-to(mobile) {
+      margin: (6 * $indent) (-6 * $indent);
+    }
+  }
+
+  &--top-decreased-t15 {
+    margin: (6 * $indent) -10rem 0;
+
+    @include respond-to(tablet) {
+      margin: (6 * $indent) (-12 * $indent) 0;
+    }
+
+    @include respond-to(mobile) {
+      margin: (4 * $indent) (-6 * $indent) 0;
+    }
+  }
+}

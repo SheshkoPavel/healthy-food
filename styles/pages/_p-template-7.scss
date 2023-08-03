@@ -1,0 +1,78 @@
+// overview
+
+.p-template-7-overview__title {
+  width: 70%;
+  margin: 0 auto (6 * $indent);
+  color: $color-dark-slate;
+  text-align: center;
+  @include type-headline-1;
+
+  @include respond-to(tablet) {
+    overflow-wrap: break-word;
+  }
+
+  @include respond-to(mobile) {
+    width: 100%;
+    margin-bottom: 20 * $indent;
+  }
+}
+
+.p-template-7-overview__description {
+  width: 50%;
+  margin: 0 auto;
+  color: $color-dark-slate--body;
+  text-align: center;
+  @include type-paragraph-l;
+
+  @include respond-to(mobile) {
+    width: 100%;
+  }
+}
+
+// listing
+
+.p-template-7-listing {
+  display: flex;
+  gap: 20 * $indent;
+
+  @include respond-to(tablet-l) {
+    gap: 16 * $indent;
+  }
+
+  @include respond-to(tablet) {
+    flex-direction: column;
+  }
+}
+
+.p-template-7-listing__filters {
+  width: calc(30% - (20 * $indent) / 2);
+  margin-left: -6 * $indent;
+
+  @include respond-to(tablet-l) {
+    width: calc(35% - (16 * $indent) / 2);
+    margin-left: 0;
+  }
+
+  @include respond-to(tablet) {
+    width: 100%;
+  }
+}
+
+.p-template-7-listing__results {
+  width: calc(70% - (20 * $indent) / 2);
+
+  @include respond-to(tablet-l) {
+    width: calc(65% - (16 * $indent) / 2);
+    margin-left: 0;
+  }
+
+  @include respond-to(tablet) {
+    width: 100%;
+  }
+}
+
+.p-template-7-listing__cards {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 6 * $indent;
+}

@@ -1,0 +1,273 @@
+// breakpoints
+
+@mixin respond-from($media) {
+  @if $media == desktop-l {
+
+    @media all and (min-width: $screen-desktop-l + 1px) {
+      @content;
+    }
+  }
+
+  @if $media == desktop {
+
+    @media all and (min-width: $screen-desktop + 1px) {
+      @content;
+    }
+  }
+
+  @if $media == laptop {
+
+    @media all and (min-width: $screen-laptop + 1px) {
+      @content;
+    }
+  }
+
+  @if $media == tablet-l {
+
+    @media all and (min-width: $screen-tablet-l + 1px) {
+      @content;
+    }
+  }
+
+  @if $media == tablet {
+
+    @media all and (min-width: $screen-tablet + 1px) {
+      @content;
+    }
+  }
+
+  @if $media == mobile {
+
+    @media all and (min-width: $screen-mobile + 1px) {
+      @content;
+    }
+  }
+
+  @if $media == mobile-s {
+
+    @media all and (min-width: $screen-mobile-s + 1px) {
+      @content;
+    }
+  }
+}
+
+@mixin respond-to($media) {
+  @if $media == desktop-l {
+
+    @media all and (max-width: $screen-desktop-l) {
+      @content;
+    }
+  }
+
+  @if $media == desktop {
+
+    @media all and (max-width: $screen-desktop) {
+      @content;
+    }
+  }
+
+  @if $media == laptop {
+
+    @media all and (max-width: $screen-laptop) {
+      @content;
+    }
+  }
+
+  @if $media == tablet-l {
+
+    @media all and (max-width: $screen-tablet-l) {
+      @content;
+    }
+  }
+
+  @if $media == tablet {
+
+    @media all and (max-width: $screen-tablet) {
+      @content;
+    }
+  }
+
+  @if $media == mobile {
+
+    @media all and (max-width: $screen-mobile) {
+      @content;
+    }
+  }
+
+  @if $media == mobile-s {
+
+    @media all and (max-width: $screen-mobile-s) {
+      @content;
+    }
+  }
+}
+
+// type
+
+@mixin type-headline-1 {
+  font-family: $type-family--alt;
+  font-size: 5.2rem;
+  font-weight: $type-weight-s;
+  line-height: normal;
+  letter-spacing: 0.2rem;
+  text-transform: uppercase;
+
+  @include respond-to(mobile) {
+    font-size: 4.8rem;
+    letter-spacing: 0.1rem;
+  }
+}
+
+@mixin type-headline-2 {
+  font-family: $type-family--alt;
+  font-size: 5.4rem;
+  font-weight: $type-weight-m;
+  line-height: 7.2rem;
+  letter-spacing: -0.1rem;
+
+  @include respond-to(mobile) {
+    font-size: 4.8rem;
+    line-height: 5.6rem;
+  }
+}
+
+@mixin type-headline-3 {
+  font-family: $type-family--alt;
+  font-size: 4.8rem;
+  font-weight: $type-weight-s;
+  line-height: 5.2rem;
+
+  @include respond-to(mobile) {
+    font-size: 4rem;
+    line-height: 4.8rem;
+  }
+}
+
+@mixin type-headline-4 {
+  font-family: $type-family--alt;
+  font-size: 3.2rem;
+  font-weight: $type-weight-s;
+  line-height: 4rem;
+}
+
+@mixin type-headline-5 {
+  font-family: $type-family--alt;
+  font-size: 2.4rem;
+  font-weight: $type-weight-s;
+  line-height: 2.8rem;
+}
+
+@mixin type-headline-6 {
+  font-family: $type-family--alt;
+  font-size: 1.8rem;
+  font-weight: $type-weight-s;
+  line-height: 2.4rem;
+  letter-spacing: 0.1rem;
+}
+
+@mixin type-paragraph-l {
+  font-size: 2rem;
+  font-weight: $type-weight-s;
+  line-height: 3.2rem;
+}
+
+@mixin type-paragraph-m {
+  font-size: 1.8rem;
+  font-weight: $type-weight-s;
+  line-height: 2.8rem;
+}
+
+@mixin type-paragraph-s {
+  font-size: 1.6rem;
+  font-weight: $type-weight-s;
+  line-height: 2.4rem;
+}
+
+@mixin type-legal-text {
+  font-size: 1.4rem;
+  font-weight: $type-weight-s;
+  line-height: 2.4rem;
+}
+
+@mixin type-quote-1 {
+  font-family: $type-family--alt;
+  font-size: 6.4rem;
+  font-weight: $type-weight-l;
+  line-height: 7.2rem;
+  letter-spacing: -0.2rem;
+
+  @include respond-to(mobile) {
+    font-size: 4.8rem;
+    line-height: 5.6rem;
+  }
+}
+
+@mixin type-quote-2 {
+  font-family: $type-family--alt;
+  font-size: 3.2rem;
+  font-weight: $type-weight-l;
+  line-height: 4rem;
+}
+
+@mixin type-nav {
+  font-family: $type-family--alt;
+  font-size: 2.2rem;
+  font-weight: $type-weight-m;
+  line-height: 2rem;
+}
+
+@mixin type-subnav {
+  font-family: $type-family--alt;
+  font-size: 1.8rem;
+  font-weight: $type-weight-s;
+  line-height: 2rem;
+  letter-spacing: 0.2rem;
+  text-transform: uppercase;
+}
+
+@mixin type-button-m {
+  font-family: $type-family--alt;
+  font-size: 1.6rem;
+  font-weight: $type-weight-s;
+  line-height: normal;
+  letter-spacing: 0.2rem;
+  text-transform: uppercase;
+}
+
+@mixin type-button-s {
+  font-family: $type-family--alt;
+  font-size: 1.4rem;
+  font-weight: $type-weight-s;
+  line-height: 1.4;
+  letter-spacing: 0.2rem;
+  text-transform: uppercase;
+}
+
+@mixin type-overflow {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+// layout
+
+// @mixin layout-container {
+//   width: 100%;
+//   max-width: $screen--desktop;
+//   padding: 0 10rem;
+//   margin: 0 auto;
+
+//   @include respond-to(desktop) {
+//     max-width: $screen--tablet;
+//     padding: 0 4.8rem;
+//   }
+
+//   @include respond-to(tablet) {
+//     max-width: $screen--mobile;
+//     padding: 0 2.4rem;
+//   }
+
+//   @include respond-to(mobile) {
+//     max-width: 100%;
+//   }
+// }

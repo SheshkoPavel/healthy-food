@@ -1,0 +1,119 @@
+.c-link {
+  position: relative;
+  display: block;
+  width: fit-content;
+  min-width: fit-content;
+  padding: $indent 0;
+  box-shadow: inset 0 -2px 0 -1px rgba($color-dark-slate, 0.1);
+  color: $color-primary-black;
+  @include type-subnav;
+  text-decoration: none;
+  cursor: pointer;
+
+  &--white {
+    color: $color-primary-white;
+  }
+}
+
+.c-link::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: $color-dark-slate;
+  transition: width $motion;
+}
+
+.c-link--white::before {
+  background-color: $color-primary-white;
+}
+
+.c-link:hover::before {
+  width: 100%;
+}
+
+.c-link--icon {
+  padding-right: calc(1.6rem + (2 * $indent));
+  background-image: url("/assets/icons/arrow-right--black.svg");
+  background-repeat: no-repeat;
+  background-position: right 0 center;
+  background-size: 1.6rem;
+  transition: padding-right $motion;
+
+  &:hover {
+    padding-right: calc(1.6rem + (2 * $indent) + (2 * $indent));
+  }
+}
+
+.c-link--icon-reverse {
+  padding-left: calc(1.6rem + (2 * $indent));
+  background-image: url("/assets/icons/arrow-right--black.svg");
+  background-repeat: no-repeat;
+  background-position: left 0 center;
+  background-size: 1.6rem;
+
+  &-left {
+    background-image: url("/assets/icons/arrow-left--black.svg");
+  }
+
+  &-like {
+    background-image: url("/assets/icons/like--white.svg");
+  }
+
+  &-like-filled {
+    background-image: url("/assets/icons/like-filled--white.svg");
+  }
+
+  &-calendar-black {
+    background-image: url("/assets/icons/calendar--black.svg");
+  }
+
+  &-calendar {
+    background-image: url("/assets/icons/calendar--white.svg");
+  }
+
+  &-calendar-added {
+    background-image: url("/assets/icons/calendar-added--white.svg");
+  }
+
+  &-share {
+    background-image: url("/assets/icons/share--white.svg");
+  }
+
+  &-email {
+    background-image: url("/assets/icons/email.svg");
+  }
+}
+
+.c-link--icon-v {
+  padding-right: calc(1.6rem + (2 * $indent));
+  background-image: url("/assets/icons/arrow-down--v.svg");
+  background-repeat: no-repeat;
+  background-position: right 0 center;
+  background-size: 1.6rem;
+  transition: background-image $motion;
+
+  &-opened {
+    background-image: url("/assets/icons/arrow-up--v.svg");
+  }
+}
+
+.c-link--icon-close {
+  padding-right: calc(1.6rem + (2 * $indent));
+  background-image: url("/assets/icons/close.svg");
+  background-repeat: no-repeat;
+  background-position: right 0 center;
+  background-size: 1.6rem;
+  transition: padding-right $motion;
+}
+
+.c-link--icon-download {
+  padding-right: calc(1.6rem + (2 * $indent));
+  background-image: url("/assets/icons/download--black.svg");
+  background-repeat: no-repeat;
+  background-position: right 0 center;
+  background-size: 1.6rem;
+  transition: padding-right $motion;
+}

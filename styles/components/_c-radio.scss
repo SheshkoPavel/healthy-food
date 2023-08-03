@@ -1,0 +1,22 @@
+.c-radio {
+  position: relative;
+  display: flex;
+  align-items: center;
+  color: $color-dark-slate--body;
+  @include type-paragraph-s;
+  padding: 0 0 2rem (6 * $indent);
+
+  &--disabled {
+    color: $color-primary-slate--medium;
+  }
+}
+
+.c-radio .c-radio__icon {
+  background-color: $color-dark-slate--body;
+}
+
+.c-radio__type {
+  position: absolute;
+  overflow: hidden;
+  margin-left: -(6 * $indent);
+}

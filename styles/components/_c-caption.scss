@@ -1,0 +1,30 @@
+.c-caption {
+  display: block;
+  display: flex;
+  gap: 8 * $indent;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0;
+  padding-top: 4 * $indent;
+
+  @include respond-to(mobile) {
+    gap: 4 * $indent;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+// .c-caption__link {
+//   margin: 0 0 0 (8 * $indent);
+
+//   @include respond-to(mobile) {
+//     & {
+//       margin: (4 * $indent) 0 0 0;
+//     }
+//   }
+// }
+
+.c-caption__type {
+  color: $color-dark-slate--body;
+  @include type-paragraph-m;
+}

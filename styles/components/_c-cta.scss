@@ -1,0 +1,44 @@
+.c-cta {
+  width: 100%;
+  display: flex;
+  gap: 14 * $indent;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8 * $indent;
+  border-radius: $border-radius-m;
+  background-color: $color-primary-sandstone--light;
+
+  @include respond-to(mobile) {
+    flex-direction: column;
+    gap: 8 * $indent;
+  }
+}
+
+.c-cta__title {
+  margin-bottom: 2 * $indent;
+  color: $color-dark-slate;
+  @include type-headline-5;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.c-cta__description {
+  color: $color-dark-slate--body;
+  @include type-paragraph-m;
+
+  @include respond-to(mobile) {
+    @include type-paragraph-s;
+  }
+}
+
+.c-cta__button {
+  flex-shrink: 0;
+  max-width: 50%;
+
+  @include respond-to(mobile) {
+    width: 100%;
+    max-width: 100%;
+  }
+}

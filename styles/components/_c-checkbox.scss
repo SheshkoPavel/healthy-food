@@ -1,0 +1,26 @@
+.c-checkbox {
+  position: relative;
+  display: flex;
+  align-items: center;
+  color: $color-dark-slate--body;
+  @include type-paragraph-s;
+  padding: 0 0 2rem (6 * $indent);
+
+  &--disabled {
+    color: $color-primary-slate--medium;
+  }
+}
+
+.c-checkbox .c-checkbox__icon {
+  background-color: $color-dark-slate--body;
+}
+
+.c-checkbox__type {
+  position: absolute;
+  overflow: hidden;
+  margin-left: -(6 * $indent);
+
+  .c-checkbox--disabled & {
+    opacity: 0.6;
+  }
+}

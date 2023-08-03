@@ -1,0 +1,408 @@
+// overview
+
+.p-template-13-overview__actions {
+  display: flex;
+  gap: 8 * $indent;
+  justify-content: flex-end;
+  margin-bottom: 9 * $indent;
+
+  @include respond-to(mobile) {
+    margin-bottom: 12 * $indent;
+  }
+}
+
+.p-template-13-overview__action {
+  width: 3.2rem;
+  height: 3.2rem;
+  background-color: $color-primary-slate;
+}
+
+.p-template-13-overview__title {
+  margin-bottom: 6 * $indent;
+  color: $color-dark-slate;
+  text-align: center;
+  @include type-headline-1;
+
+  @include respond-to(tablet) {
+    overflow-wrap: break-word;
+  }
+}
+
+.p-template-13-overview__tags {
+  display: flex;
+  gap: 2 * $indent;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.p-template-13-overview__tag {
+  color: $color-primary-slate--dark;
+  font-family: $type-family;
+  // text-transform: capitalize;
+  letter-spacing: normal;
+  @include type-paragraph-s;
+}
+
+.p-template-13-overview__tag-delimiter {
+  color: $color-primary-slate--dark;
+}
+
+// 2-columns
+
+.p-template-13-2-columns__columns {
+  display: flex;
+  gap: 14 * $indent;
+  margin-bottom: 12 * $indent;
+
+  @include respond-to(mobile) {
+    flex-direction: column;
+    gap: 12 * $indent;
+  }
+
+  &--mobile-gap-64 {
+    @include respond-to(mobile) {
+      flex-direction: column;
+      gap: 16 * $indent;
+    }
+  }
+}
+
+.p-template-13-2-columns__column {
+  width: calc(50% - (14 * $indent) / 2);
+
+  @include respond-to(mobile) {
+    width: 100%;
+  }
+
+  &--left {
+    display: flex;
+    gap: 40 * $indent;
+    flex-direction: column;
+
+    @include respond-to(mobile) {
+      gap: 8 * $indent;
+    }
+  }
+
+  &--right {
+    display: flex;
+    gap: 16 * $indent;
+    flex-direction: column;
+
+    @include respond-to(mobile) {
+      flex-direction: column-reverse;
+      gap: 12 * $indent;
+    }
+  }
+
+  &--right-gap-48 {
+    display: flex;
+    gap: 12 * $indent;
+    flex-direction: column;
+  }
+}
+
+.p-template-13-2-columns__image-caption {
+  padding-top: 6 * $indent;
+}
+
+.p-template-13-2-columns__content-cards-wrapper {
+  display: flex;
+  gap: 12 * $indent;
+  flex-direction: column;
+
+  @include respond-to(mobile) {
+    gap: 8 * $indent;
+  }
+}
+
+.p-template-13-2-columns__content-card .p-template-13-2-columns__content-card-container {
+  @include respond-to(mobile) {
+    padding: 0;
+  }
+}
+
+// featured menu
+
+.p-template-13-menu__title {
+  margin-bottom: 7 * $indent;
+  color: $color-dark-slate;
+  // text-transform: capitalize;
+  @include type-headline-2;
+
+  @include respond-to(mobile) {
+    margin-bottom: 5 * $indent;
+  }
+}
+
+.p-template-13-menu__section {
+  padding-top: 5 * $indent;
+  margin-bottom: 15 * $indent;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  @include respond-to(mobile) {
+    margin-bottom: 7 * $indent;
+  }
+}
+
+.p-template-13-menu__section-header {
+  margin-bottom: 6 * $indent;
+  padding-bottom: 6 * $indent;
+  border-bottom: 1px solid $color-primary-clay;
+}
+
+.p-template-13-menu__section-title {
+  margin-bottom: 2 * $indent;
+  color: $color-dark-slate;
+  // text-transform: capitalize;
+  @include type-headline-4;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.p-template-13-menu__section-descriprion {
+  color: $color-dark-slate;
+}
+
+.p-template-13-menu__section-image-cards {
+  display: flex;
+  gap: 6 * $indent;
+  flex-wrap: nowrap;
+
+  @include respond-to(tablet) {
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    margin: 0 (-12 * $indent);
+  }
+
+  @include respond-to(mobile) {
+    margin: 0 (-6 * $indent);
+  }
+}
+
+.p-template-13-menu__section-image-cards::before {
+  display: none;
+  flex: 0 0 auto;
+  content: '';
+
+  @include respond-to(tablet) {
+    display: block;
+    width: calc((12 * $indent) - (6 * $indent));
+  }
+
+  @include respond-to(mobile) {
+    width: calc((6 * $indent) - (6 * $indent));
+  }
+}
+
+.p-template-13-menu__section-image-cards::after {
+  display: none;
+  flex: 0 0 auto;
+  content: '';
+
+  @include respond-to(tablet) {
+    display: block;
+    width: calc((12 * $indent) - (6 * $indent));
+  }
+
+  @include respond-to(mobile) {
+    width: calc((6 * $indent) - (6 * $indent));
+  }
+}
+
+.p-template-13-menu__section-image-cards::-webkit-scrollbar {
+  display: none;
+}
+
+.p-template-13-menu__section-image-card {
+  aspect-ratio: 2 / 3;
+
+  @include respond-to(tablet) {
+    flex: 0 0 auto;
+  }
+
+  @include respond-to(mobile) {
+    width: calc(100% - 38.9%);
+    aspect-ratio: 1 / 1;
+  }
+}
+
+.p-template-13-menu__section-image-card-caption {
+  @include respond-to(mobile) {
+    @include type-headline-6;
+  }
+}
+
+// content-cards menu
+
+.p-template-13-menu__section-content-cards {
+  display: grid;
+  grid-template: repeat(1, 1fr) / repeat(2, 1fr);
+  gap: (8 * $indent) (6 * $indent);
+
+  @include respond-to(tablet-l) {
+    grid-template: repeat(1, 1fr) / repeat(1, 1fr);
+  }
+
+
+  @include respond-to(tablet) {
+    display: flex;
+    gap: 6 * $indent;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    margin: 0 (-12 * $indent);
+  }
+
+  @include respond-to(mobile) {
+    margin: 0 (-6 * $indent);
+  }
+}
+
+.p-template-13-menu__section-content-cards::before {
+  display: none;
+  flex: 0 0 auto;
+  content: '';
+
+  @include respond-to(tablet) {
+    display: block;
+    width: calc((12 * $indent) - (6 * $indent));
+  }
+
+  @include respond-to(mobile) {
+    width: calc((6 * $indent) - (6 * $indent));
+  }
+}
+
+.p-template-13-menu__section-content-cards::after {
+  display: none;
+  flex: 0 0 auto;
+  content: '';
+
+  @include respond-to(tablet) {
+    display: block;
+    width: calc((12 * $indent) - (6 * $indent));
+  }
+
+  @include respond-to(mobile) {
+    width: calc((6 * $indent) - (6 * $indent));
+  }
+}
+
+.p-template-13-menu__section-content-cards::-webkit-scrollbar {
+  display: none;
+}
+
+.p-template-13-menu__section-content-card {
+  @include respond-to(tablet) {
+    width: calc(100% - 38.9%);
+    flex: 0 0 auto;
+    flex-direction: column;
+  }
+}
+
+.p-template-13-menu__section-content-card-link,
+.p-template-13-menu__section-content-card-container {
+  @include respond-to(tablet) {
+    width: 100%;
+  }
+}
+
+// mixed preview cards
+
+.p-template-13-menu__section-mixed-cards {
+  display: flex;
+  gap: 6 * $indent;
+
+  @include respond-to(tablet) {
+    gap: 4 * $indent;
+    flex-direction: column;
+  }
+}
+
+.p-template-13-menu__section-mixed-cards-column {
+  width: calc(50% - (6 * $indent) / 2);
+  display: flex;
+  gap: 8 * $indent;
+  flex-direction: column;
+
+  @include respond-to(tablet) {
+    width: 100%;
+    gap: 4 * $indent;
+  }
+}
+
+.p-template-13-menu__section-mixed-card-tag,
+.p-template-13-menu__section-preview-card-tag {
+  box-shadow: none;
+
+  &:hover::before {
+    width: 0;
+  }
+}
+
+// preview cards
+
+.p-template-13-menu__section-preview-cards {
+  display: grid;
+  grid-template: repeat(1, 1fr) / repeat(2, 1fr);
+  gap: (8 * $indent) (6 * $indent);
+
+  &--3-columns {
+    grid-template: repeat(1, 1fr) / repeat(3, 1fr);
+  }
+
+  @include respond-to(tablet-l) {
+    grid-template: repeat(1, 1fr) / repeat(1, 1fr);
+    gap: 4 * $indent;
+  }
+}
+
+// crosslinked
+
+.p-template-13-crosslinked__title {
+  padding: (3 * $indent) 0 (6 * $indent);
+  margin-bottom: 6 * $indent;
+  border-bottom: 1px solid $color-primary-clay;
+  color: $color-dark-slate;
+  @include type-headline-4;
+
+  @include respond-to(mobile) {
+    padding: 0 0 (6 * $indent);
+    margin-bottom: 12 * $indent;
+  }
+}
+
+.p-template-13-crosslinked__content-cards {
+  display: flex;
+  gap: 6 * $indent;
+  flex-wrap: nowrap;
+  width: 100%;
+  margin-bottom: 12 * $indent;
+
+  @include respond-to(tablet) {
+    gap: 12 * $indent;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  @include respond-to(mobile) {
+    width: calc(100% + 2 * (6 * $indent));
+    margin-left: -6 * $indent;
+    margin-right: -6 * $indent;
+    margin-right: -6 * $indent;
+  }
+}
+
+.p-template-13-crosslinked__content-card {
+  width: calc((100% - 2 * (6 * $indent)) / 3);
+
+  @include respond-to(tablet) {
+    width: 100%;
+  }
+}

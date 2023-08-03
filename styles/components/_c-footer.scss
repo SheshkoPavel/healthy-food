@@ -1,0 +1,185 @@
+.c-footer {
+  width: calc(100% - (8 * $indent) * 2);
+  min-width: 28rem;
+  margin: 0 auto;
+  max-width: 85vw;
+
+  @include respond-to(mobile) {
+    width: 100%;
+  }
+}
+
+.c-footer__inner {
+  --footer__bi: #{url("/")};
+
+  display: flex;
+
+  height: 82.3rem;
+  padding: (12 * $indent) (17 * $indent);
+  background-image: var(--footer__bi), linear-gradient(to bottom, rgba(78, 69, 64, 0.4), rgba(78, 69, 64, 0));
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  @include respond-to(tablet-l) {
+    flex-direction: column;
+    height: 110.9rem;
+  }
+
+  @include respond-to(mobile) {
+    padding: (7 * $indent) (6 * $indent);
+    background-size: auto 135%;
+    background-position: left -80rem top;
+  }
+}
+
+.c-footer__location {
+  width: 50%;
+
+  @include respond-to(desktop) {
+    width: 40%;
+  }
+
+  @include respond-to(tablet-l) {
+    width: 100%;
+  }
+}
+
+.c-footer__columns {
+  width: 50%;
+
+  @include respond-to(desktop) {
+    width: 60%;
+  }
+
+  @include respond-to(tablet-l) {
+    width: 100%;
+  }
+}
+
+.c-footer__logo-link {
+  display: block;
+  overflow: hidden;
+  margin-bottom: 8 * $indent;
+  cursor: pointer;
+}
+
+.c-footer__logo {
+  position: relative;
+
+  &--auth {
+    width: 10rem;
+    height: 10rem;
+  }
+
+  &--unauth {
+    width: 32.9rem;
+    height: 6rem;
+  }
+}
+
+.c-footer__logo-img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.c-footer__address {
+  margin-bottom: 8 * $indent;
+  color: $color-primary-white;
+  @include type-subnav;
+  line-height: 2.4rem;
+  letter-spacing: 0.13rem;
+  white-space: pre;
+}
+
+.c-footer__phone.c-footer__inner-link {
+  @include respond-to(tablet-l) {
+    margin-bottom: 8 * $indent;
+  }
+}
+
+.c-footer__columns {
+  display: flex;
+
+  @include respond-to(mobile) {
+    flex-direction: column;
+  }
+}
+
+.c-footer__column-1,
+.c-footer__column-2 {
+  width: calc((100% - 2.6rem) / 2);
+
+  @include respond-to(mobile) {
+    width: 100%;
+  }
+}
+
+.c-footer__column-1 {
+  margin-right: 2.6rem;
+
+  @include respond-to(mobile) {
+    margin-right: 0;
+    margin-bottom: 8 * $indent;
+  }
+}
+
+.c-footer__column-title {
+  margin-bottom: 4 * $indent;
+  padding-bottom: 1.3rem;
+  border-bottom: 1px solid $color-primary-white;
+  color: $color-primary-white;
+  @include type-paragraph-s;
+}
+
+.c-footer__inner-link {
+  margin-bottom: 3 * $indent;
+  color: $color-primary-white;
+}
+
+.c-footer__rights {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: (6 * $indent) (15 * $indent) (20 * $indent) (17 * $indent);
+
+  @include respond-to(mobile) {
+    flex-direction: column;
+    align-items: center;
+    padding: (6 * $indent) (6 * $indent) (19 * $indent);
+  }
+}
+
+.c-footer__rights-type {
+  color: $color-dark-slate--body;
+  @include type-paragraph-s;
+
+  @include respond-to(mobile) {
+    margin-bottom: 4 * $indent;
+    text-align: center;
+  }
+}
+
+.c-footer__rights-links {
+  display: flex;
+
+  @include respond-to(mobile) {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  & .c-footer__rights-link {
+    color: $color-dark-slate;
+    font-size: 1.6rem;
+  }
+}
+
+.c-footer__rights-link:not(:last-child) {
+  margin-right: 8 * $indent;
+
+  @include respond-to(mobile) {
+    margin-right: 0;
+    margin-bottom: 4 * $indent;
+  }
+}

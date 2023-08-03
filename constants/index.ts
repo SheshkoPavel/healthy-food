@@ -1,0 +1,10 @@
+export const production = JSON.parse(process.env.PRODUCTION || 'true');
+export const hostURL = process.env.HOST_URL;
+export const functionURL = process.env.FUNCTION_URL;
+export const portalURL = process.env.PORTAL_URL;
+export const functionBaseUrl = process.env.FUNCTION_BASE_URL || '';
+export const authAPIKey = process.env.AUTH_API_KEY;
+export const memberAPIKey = process.env.MEMBER_API_KEY;
+export const singnalRHubURL = process.env.SIGNALR_HUB_URL;
+export const senSourceHub = process.env.SEN_SOURCE_HUB;
+export const cateredEventHub = process.env.CATERED_EVENT_HUB;

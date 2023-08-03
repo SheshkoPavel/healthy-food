@@ -1,0 +1,122 @@
+.p-template-8-back-link {
+  margin: (8 * $indent) 0;
+}
+
+.p-template-8-main-content {
+  display: flex;
+  gap: 5 * $indent;
+
+  @include respond-to(mobile) {
+    gap: 6 * $indent;
+    flex-direction: column;
+  }
+}
+
+.p-template-8-main-content__image {
+  width: calc(25% - (5 * $indent) / 2);
+
+  @include respond-to(mobile) {
+    width: 100%;
+  }
+}
+
+.p-template-8-main-content__type {
+  width: calc(75% - (5 * $indent) / 2);
+
+  @include respond-to(mobile) {
+    width: 100%;
+  }
+}
+
+.p-template-8-main-content__title {
+  margin-bottom: 6 * $indent;
+  color: $color-dark-slate;
+  @include type-headline-2;
+}
+
+.p-template-8-main-content__tag {
+  margin-bottom: 8 * $indent;
+  color: $color-primary-slate--dark;
+  @include type-paragraph-s;
+
+  @include respond-to(mobile) {
+    margin-bottom: 10 * $indent;
+  }
+}
+
+.p-template-8-main-content__section {
+  margin-bottom: 12 * $indent;
+}
+
+.p-template-8-main-content__section-title {
+  margin-bottom: 12 * $indent;
+  padding-bottom: 6 * $indent;
+  border-bottom: 1px solid $color-primary-clay;
+  color: $color-dark-slate;
+  @include type-headline-4;
+}
+
+.p-template-8-main-content__section-columns {
+  display: flex;
+  gap: 6 * $indent;
+
+  @include respond-to(tablet) {
+    flex-direction: column;
+  }
+}
+
+.p-template-8-main-content__section-description {
+  width: calc(55% - (6 * $indent) / 2);
+  color: $color-dark-slate--body;
+  @include type-paragraph-m;
+
+  @include respond-to(tablet) {
+    width: 100%;
+  }
+}
+
+.p-template-8-main-content__section-description-full {
+  width: 100%;
+  color: $color-dark-slate--body;
+  @include type-paragraph-m;
+}
+
+.p-template-8-main-content__section-contacts {
+  width: calc(45% - (6 * $indent) / 2);
+  display: flex;
+  gap: 2 * $indent;
+  flex-direction: column;
+  overflow: hidden;
+
+  @include respond-to(tablet) {
+    width: 100%;
+    gap: 8 * $indent;
+  }
+}
+
+.p-template-8-main-content__section-contacts-label {
+  margin-bottom: 2 * $indent;
+  color: $color-dark-slate--body;
+  @include type-paragraph-l;
+}
+
+.p-template-8-main-content__section-contacts-email {
+  width: auto;
+  min-width: 0;
+  max-width: fit-content;
+  @include type-overflow;
+}
+
+.p-template-8-main-content__section-contacts-address {
+  color: $color-primary-black;
+  @include type-subnav;
+  line-height: 2.4rem;
+  letter-spacing: 0.13rem;
+  white-space: pre;
+}
+
+.p-template-8-main-content__section-cards {
+  display: flex;
+  gap: 12 * $indent;
+  flex-direction: column;
+}

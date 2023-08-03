@@ -1,0 +1,194 @@
+import { Stack as StackStack } from 'contentstack';
+
+const Stack = StackStack({
+  api_key: process.env.CONTENTSTACK_API_KEY,
+  delivery_token: process.env.DELIVERY_TOKEN,
+  environment: process.env.ENVIRONMENT,
+});
+
+const getPageData = async (content_type_uid: string, uid: string) => {
+  let content: any[] = [];
+
+  const Query = Stack
+    .ContentType(content_type_uid)
+    .Entry(uid)
+    .includeReference([
+      'footer',
+      'footer.main_content.two_column_navigation.column_1.links',
+      'footer.main_content.two_column_navigation.column_2.links',
+      'footer.utility_navigation',
+      'header',
+      'header.account_navigation.links',
+      'header.primary_navigation.links',
+      'header.secondary_navigation.items.link',
+      'header.secondary_navigation.items.sub_links',
+      'header.secondary_navigation.items.sub_links_with_images.sub_links',
+      'main_content.featured.items',
+      'main_content.featured.items.categories',
+      'main_content.featured.cta',
+      'main_content.club_contact.item',
+      'main_content.quote.item',
+      'main_content.two_column_entry_summaries.summary_items',
+      'main_content.two_column_entry_summaries.cta',
+      'main_content.two_column_entry_summaries.link',
+      'main_content.two_column_summaries_with_carousel.cta',
+      'main_content.two_column_summaries_with_carousel.link',
+      'main_content.two_column_summaries_with_carousel.carousel',
+      'main_content.two_column_summaries_with_carousel.summary_items',
+      'main_content.filtered_entry_summary_list.categories',
+      'main_content.cross_linked_content',
+      'main_content.cross_linked_content.item',
+      'main_content.cross_linked_content.cta',
+      'main_content.cross_linked_content.cta.link',
+      'overview.hero',
+      'overview.hero.hero',
+      'overview.hero.mosaic_image',
+      // 'categories',
+
+      // t1 public facing page
+      'overview.carousel_with_video',
+      'main_content.two_column.link',
+      'main_content.two_column.link_copy',
+      'main_content.tabbed.link',
+      'main_content.mosaic_carousel.mosaic_carousel',
+      'main_content.featured.cta.link',
+
+      // t2
+      'main_content.cross_linked_content.items',
+      'main_content.two_column.column_1.items',
+      'main_content.two_column.column_2.items',
+      'main_content.two_column.cta',
+
+      // t4
+      'main_content.filtered_entry_summary_list.cta',
+
+      // t5
+      'main_content.schedule.contact_person',
+      'main_content.schedule.files',
+      'main_content.schedule.cta',
+      'main_content.schedule.cta.link',
+      'main_content.schedule.links',
+      'main_content.staff.items',
+      'main_content.two_column.column_1.link',
+      'main_content.two_column.column_1.files',
+      'main_content.two_column.column_2.items',
+      'main_content.one_row.items',
+      'main_content.two_column_with_cta.column_1.items',
+      'main_content.two_column_with_cta.column_2.items',
+      'main_content.two_column_with_cta.cta',
+
+      // t6
+      'main_content.contact_information.item',
+      'main_content.image_with_text.files',
+      'main_content.image_with_text.cta',
+      'main_content.image_with_text.cta.link',
+      'main_content.image_with_text.sub_files',
+      'main_content.image_with_text.sub_cta',
+      'main_content.image_with_text.sub_cta.link',
+      'main_content.tabbed.tabs.content.files',
+      'main_content.tabbed.tabs.content.cta',
+      'main_content.tabbed.tabs.content.cta.link',
+
+      // t7
+      'details_page',
+
+      // t8
+      'back_link',
+
+      // t13
+      'overview.categories',
+      'main_content.contact_information.carousel',
+      'main_content.contact_information.cta',
+      'main_content.menu.menu_content.featured.items',
+      'main_content.menu.menu_content.big_size_cards.items',
+      'main_content.menu.menu_content.mixed_size_cards.items',
+      'main_content.menu.menu_content.mixed_size_cards.items.categories',
+      'main_content.menu.menu_content.small_size_cards.items',
+      'main_content.menu.menu_content.small_size_cards.items.categories',
+      'main_content.menu.menu_content.small_size_cards_without_images.items',
+      'main_content.menu.menu_content.small_size_cards_without_images.items.categories',
+
+      // t15
+      'overview.items.cta',
+      'overview.items.cta.link',
+      'main_content.quick_links.links',
+      'main_content.quick_links.crowd_meter_link',
+      'main_content.events.column_1.link',
+      'main_content.events.column_1.cta',
+      'main_content.events.column_1.cta.link',
+      'main_content.events.column_2.link',
+      'main_content.mixed.mixed_content.featured.items',
+      'main_content.mixed.mixed_content.featured.dropdown_items',
+
+      'main_content.mixed.mixed_content.tabs.tabs.items',
+      'main_content.mixed.mixed_content.tabs.tabs.items.categories',
+      'main_content.mixed.mixed_content.tabs.tabs.view_all_link',
+
+      'main_content.mixed.mixed_content.galleries.view_all_link',
+      'main_content.mixed.mixed_content.galleries.galleries_reference',
+
+      'main_content.mixed.mixed_content.news.view_all_link',
+    ])
+    .only('main_content.featured.items.categories', [
+      'title',
+    ])
+    .only('main_content.two_column_entry_summaries.summary_items.categories', [
+      'title',
+    ])
+    .only('main_content.two_column_summaries_with_carousel.summary_items.categories', [
+      'title',
+    ])
+    .only('main_content.contact_information.item', [
+      'name',
+      'photo',
+      'role',
+      'email_address',
+      'phone_number',
+      'tags',
+      'mailing_address',
+    ])
+    .only('overview.categories', [
+      'title',
+    ])
+    .only('main_content.menu.menu_content.mixed_size_cards.items.categories', [
+      'title',
+    ])
+    .only('details_page', [
+      'url',
+    ])
+    .only('clubs_page', [
+      'url',
+    ])
+    .only('main_content.mixed.mixed_content.tabs.tabs.items.categories', [
+      'title',
+    ])
+  // .toJSON()
+
+  await Query.fetch()
+    .then(function success(entry) {
+      content = entry.toJSON();
+    }, function error(err) {
+      // err object
+    });
+
+  return content;
+};
+
+const getContentstackContent = async (contentType: string, entry: string) => {
+  let content: any[] = [];
+
+  const Query = Stack.ContentType(contentType).Entry(entry);
+  await Query.fetch()
+    .then(function success(entry) {
+      content = entry.toJSON();
+    }, function error(err) {
+      // err object
+    });
+
+  return content;
+};
+
+export {
+  getContentstackContent,
+  getPageData,
+};

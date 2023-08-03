@@ -1,0 +1,47 @@
+.c-input {
+  display: block;
+  width: 100%;
+  height: 4.8rem;
+  margin: 0;
+  padding: 0 (4 * $indent);
+  box-shadow: 0 0 0 0.1rem $color-primary-slate--medium;
+  border: none;
+  // border: 1px solid $color-primary-slate--medium;
+  border-radius: $border-radius-m;
+  background-color: $color-primary-white;
+  color: $color-dark-slate--body;
+  outline: none;
+  @include type-paragraph-s;
+
+  &::placeholder {
+    color: $color-primary-slate--medium;
+  }
+
+  &:focus {
+    // border: 0.15rem solid $color-primary-slate;
+    box-shadow: 0 0 0 0.15rem $color-primary-slate;
+  }
+
+  &--error,
+  &--error:focus {
+    // border: 0.15rem solid $color-secondary-red;
+    box-shadow: 0 0 0 0.15rem $color-secondary-red;
+  }
+
+  &:disabled,
+  &--disabled {
+    // border: 1px solid $color-primary-slate--medium;
+    box-shadow: 0 0 0 0.1rem $color-primary-slate--medium;
+    background-color: $color-primary-sandstone--light;
+    color: $color-primary-slate--medium;
+  }
+}
+
+.c-input--search {
+  padding-right: calc((3 * $indent) + 2.2rem + (3 * $indent));
+  background-image: url("/assets/icons/search--slate.svg");
+  background-repeat: no-repeat;
+  background-position: right (3 * $indent) center;
+  background-size: 2.2rem;
+  color: $color-primary-slate--dark;
+}

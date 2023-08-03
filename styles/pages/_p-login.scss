@@ -1,0 +1,139 @@
+.p-login {
+  display: flex;
+  gap: 34 * $indent;
+  justify-content: center;
+  padding: (18 * $indent) 0 (16 * $indent);
+
+  @include respond-to(tablet) {
+    flex-direction: column;
+    gap: 16 * $indent;
+    padding-left: 16 * $indent;
+    padding-right: 16 * $indent;
+  }
+
+  @include respond-to(mobile) {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+.p-login__col-1 {
+  width: calc(50% - (34 * $indent) / 2);
+
+  @include respond-to(tablet) {
+    width: 100%;
+  }
+}
+
+.p-login__title {
+  margin-bottom: 4 * $indent;
+  color: $color-dark-slate;
+  @include type-headline-1;
+
+  @include respond-to(tablet) {
+    margin-bottom: 6 * $indent;
+  }
+}
+
+.p-login__type {
+  white-space: pre-line;
+  margin-bottom: 12 * $indent;
+  color: $color-dark-slate--body;
+  @include type-paragraph-l;
+}
+
+.p-login__form {
+  width: calc(100% + (6 * $indent));
+  margin-left: -6 * $indent;
+  margin-bottom: 6 * $indent;
+  padding: 6 * $indent;
+  border-radius: $border-radius-m;
+  background-color: $color-primary-sandstone--light;
+
+  @include respond-to(tablet) {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  @include respond-to(mobile) {
+    width: calc(100% + 2 * (6 * $indent));
+    margin-left: -6 * $indent;
+    margin-right: -6 * $indent;
+  }
+}
+
+.p-login__form-title {
+  margin-bottom: 6 * $indent;
+  color: $color-dark-slate;
+  @include type-headline-3;
+
+  @include respond-to(tablet) {
+    margin-bottom: 7 * $indent;
+  }
+}
+
+.p-login__form-error {
+  display: block;
+  margin-bottom: 6 * $indent;
+  padding: 6 * $indent;
+  background-color: $color-red--light;
+  color: $color-dark-slate;
+  @include type-paragraph-m;
+  line-height: 2.8rem;
+  overflow: hidden;
+}
+
+.p-login__form-actions {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.p-login__form-action:not(:last-child) {
+  margin-bottom: 6 * $indent;
+}
+
+.p-login__call-question {
+  margin-bottom: 2 * $indent;
+  color: $color-dark-slate--body;
+  @include type-paragraph-l;
+  text-align: center;
+}
+
+.p-login__call-phone {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: $color-dark-slate--body;
+  @include type-paragraph-l;
+}
+
+.p-login__call-link {
+  color: $color-dark-slate;
+  font-size: 1.6rem;
+}
+
+.p-login__col-2 {
+  width: calc(50% - (34 * $indent) / 2);
+
+  @include respond-to(tablet) {
+    width: 100%;
+  }
+}
+
+.p-login__caption {
+  padding-top: 6 * $indent;
+
+  @include respond-to(mobile) {
+    padding-top: 4 * $indent;
+  }
+}
+
+.p-login__caption-type {
+  @include type-paragraph-l;
+
+  @include respond-to(mobile) {
+    @include type-paragraph-s;
+  }
+}

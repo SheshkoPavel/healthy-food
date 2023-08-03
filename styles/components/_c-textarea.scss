@@ -1,0 +1,31 @@
+.c-textarea {
+  margin: 0;
+  padding: 4 * $indent;
+  border: none;
+  border-radius: $border-radius-m;
+  box-shadow: 0 0 0 0.1rem $color-primary-slate--medium;
+  background-color: $color-primary-white;
+  color: $color-dark-slate--body;
+  outline: none;
+  @include type-paragraph-s;
+
+  &::placeholder {
+    color: $color-primary-slate--medium;
+  }
+
+  &:focus {
+    box-shadow: 0 0 0 0.15rem $color-primary-slate;
+  }
+
+  &--error,
+  &--error:focus {
+    box-shadow: 0 0 0 0.15rem $color-secondary-red;
+  }
+
+  &:disabled,
+  &--disabled {
+    box-shadow: 0 0 0 0.1rem $color-primary-slate--medium;
+    background-color: $color-primary-sandstone--light;
+    color: $color-primary-slate--medium;
+  }
+}

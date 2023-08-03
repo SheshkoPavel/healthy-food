@@ -1,0 +1,361 @@
+// carousel
+
+.p-template-15-carousel {
+  width: calc(100% + 2 * 10rem);
+  margin-left: -10rem;
+  margin-right: -10rem;
+
+  @include respond-to(tablet) {
+    width: calc(100% + 2 * (12 * $indent));
+    margin-left: -12 * $indent;
+    margin-right: -12 * $indent;
+  }
+
+  @include respond-to(mobile) {
+    width: calc(100% + 2 * (6 * $indent));
+    margin-left: -6 * $indent;
+    margin-right: -6 * $indent;
+  }
+}
+
+.p-template-15-carousel__slide-wrapper {
+  padding-left: 8 * $indent;
+  padding-right: 8 * $indent;
+
+  @include respond-to(mobile) {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+// quick links
+
+.p-template-15-quick-links {
+  position: relative;
+  width: 100%;
+  display: flex;
+  gap: 6 * $indent;
+  justify-content: space-between;
+
+  @include respond-to(mobile) {
+    flex-direction: column;
+    gap: 16 * $indent;
+  }
+}
+
+.p-template-15-quick-links::before {
+  position: absolute;
+  width: calc(100% + 2 * 10rem);
+  height: 210%;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  content: '';
+  background: url("/assets/img/development/pattern-02-rotated.svg");
+  background-repeat: no-repeat;
+  background-size: 35%;
+  background-position: right bottom;
+  opacity: 0.2;
+  z-index: -1;
+
+  @include respond-to(tablet-l) {
+    height: 150%;
+    background-size: 40%;
+    background-position: right -20% bottom;
+    margin-left: -10rem;
+  }
+
+  @include respond-to(tablet) {
+    width: calc(100% + 2 * (12 * $indent));
+    margin-left: -12 * $indent;
+  }
+
+  @include respond-to(mobile) {
+    display: none;
+  }
+}
+
+.p-template-15-quick-links__title {
+  margin-bottom: 8 * $indent;
+  color: $color-primary-black;
+  @include type-headline-3;
+  font-size: 3.8rem;
+
+  @include respond-to(mobile) {
+    margin-bottom: 6 * $indent;
+  }
+}
+
+.p-template-15-quick-links__buttons {
+  width: calc(70% - (6 * $indent) / 2);
+
+  @include respond-to(mobile) {
+    width: 100%;
+  }
+}
+
+.p-template-15-quick-links__items {
+  display: flex;
+  gap: 6 * $indent;
+  flex-wrap: wrap;
+
+  @include respond-to(mobile) {
+    flex-direction: column;
+    flex-wrap: nowrap;
+  }
+}
+
+.p-template-15-quick-links__item {
+  background-color: $color-bg;
+}
+
+.p-template-15-quick-links__meter {
+  width: 30%;
+  // width: 31.8rem;
+
+  @include respond-to(mobile) {
+    width: 100%;
+  }
+}
+
+// crosslinked
+
+.p-template-15-crosslinked {
+  display: flex;
+  gap: 14 * $indent;
+
+  @include respond-to(tablet) {
+    flex-direction: column;
+    gap: 10 * $indent;
+  }
+}
+
+.p-template-15-crosslinked__column-left {
+  width: calc(70% - (14 * $indent) / 2);
+
+  @include respond-to(tablet) {
+    width: 100%;
+  }
+}
+
+.p-template-15-crosslinked__column-right {
+  width: calc(30% - (14 * $indent) / 2);
+  display: flex;
+  flex-direction: column;
+
+  @include respond-to(tablet) {
+    width: 100%;
+  }
+}
+
+.p-template-15-crosslinked__column-left-title {
+  margin-bottom: 8 * $indent;
+  color: $color-dark-slate;
+  @include type-headline-3;
+
+  @include respond-to(mobile) {
+    display: none;
+  }
+}
+
+.p-template-15-crosslinked__content-cards {
+  display: flex;
+  gap: 6 * $indent;
+  flex-direction: column;
+  margin-bottom: 11 * $indent;
+
+  @include respond-to(mobile) {
+    display: none;
+  }
+}
+
+.p-template-15-crosslinked__content-cards-empty {
+  padding: 0 0 (12 * $indent);
+  color: $color-primary-slate--medium;
+}
+
+.p-template-15-crosslinked__content-cards-mobile-carousel {
+  display: none;
+
+  @include respond-to(mobile) {
+    display: block;
+  }
+}
+
+// .p-template-15-crosslinked__content-cards-mobile-carousel-inner {
+//   margin-bottom: 0;
+// }
+
+.p-template-15-crosslinked__content-cards-mobile-carousel-slide {
+  aspect-ratio: initial;
+  text-align: left;
+}
+
+.p-template-15-crosslinked__column-left-link {
+  margin-bottom: 10 * $indent;
+
+  @include respond-to(mobile) {
+    display: none;
+  }
+}
+
+.p-template-15-crosslinked__cta {
+  @include respond-to(mobile) {
+    display: none;
+  }
+}
+
+.p-template-15-crosslinked__column-right-title {
+  margin-bottom: 6 * $indent;
+  color: $color-dark-slate;
+  @include type-headline-5;
+}
+
+.p-template-15-crosslinked__preview-cards {
+  margin-bottom: 10 * $indent;
+  display: flex;
+  gap:6 * $indent;
+  flex-direction: column;
+}
+
+.p-template-15-crosslinked__column-right-link {
+  align-self: center;
+}
+
+// image cards
+
+.p-template-15-image-cards {
+  position: relative;
+}
+
+.p-template-15-image-cards::before {
+  position: absolute;
+  width: calc(100% + 2 * 10rem);
+  margin-left: -10rem;
+  height: 130%;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  content: '';
+  background: url("/assets/img/development/pattern-02-rotated.svg");
+  background-repeat: no-repeat;
+  background-size: 55%;
+  background-position: left -60% bottom;
+  opacity: 0.2;
+  z-index: -1;
+
+  @include respond-to(tablet) {
+    width: calc(100% + 2 * (12 * $indent));
+    margin-left: -12 * $indent;
+  }
+
+  @include respond-to(mobile) {
+    width: calc(100% + 2 * (6 * $indent));
+    margin-left: -6 * $indent;
+    height: 150%;
+    background: url("/assets/img/development/pattern-02-rotated.svg");
+    background-repeat: no-repeat;
+    background-size: 120%;
+    background-position: left 200% bottom;
+  }
+}
+
+.p-template-15-image-cards__header {
+  display: flex;
+  gap: 6 * $indent;
+  justify-content: space-between;
+  margin-bottom: 10 * $indent;
+
+  @include respond-to(mobile) {
+    flex-direction: column;
+  }
+}
+
+.p-template-15-image-cards__title {
+  color: $color-dark-slate;
+  @include type-headline-3;
+}
+
+.p-template-15-image-cards__dropdown {
+  width: 35%;
+
+  @include respond-to(mobile) {
+    width: 100%;
+  }
+}
+
+.p-template-15-image-cards__cards {
+  display: flex;
+  gap: 6 * $indent;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+
+  @include respond-to(tablet) {
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    margin: 0 (-12 * $indent);
+  }
+
+  @include respond-to(mobile) {
+    margin: 0 (-6 * $indent);
+  }
+}
+
+.p-template-15-image-cards__cards::before {
+  display: none;
+  flex: 0 0 auto;
+  content: '';
+
+  @include respond-to(tablet) {
+    display: block;
+    width: calc((12 * $indent) - (6 * $indent));
+  }
+
+  @include respond-to(mobile) {
+    width: calc((6 * $indent) - (6 * $indent));
+  }
+}
+
+.p-template-15-image-cards__cards::after {
+  display: none;
+  flex: 0 0 auto;
+  content: '';
+
+  @include respond-to(tablet) {
+    display: block;
+    width: calc((12 * $indent) - (6 * $indent));
+  }
+
+  @include respond-to(mobile) {
+    width: calc((6 * $indent) - (6 * $indent));
+  }
+}
+
+.p-template-15-image-cards__cards::-webkit-scrollbar {
+  display: none;
+}
+
+.p-template-15-image-cards__card {
+  aspect-ratio: 2 / 3;
+
+  @include respond-to(tablet) {
+    flex: 0 0 auto;
+  }
+
+  @include respond-to(mobile) {
+    width: calc(100% - 38.9%);
+    aspect-ratio: 1 / 1;
+  }
+}
+
+.p-template-15-image-cards__card-wrapper {
+  mix-blend-mode: normal;
+}
+
+.p-template-15-image-cards__card-caption {
+  @include respond-to(mobile) {
+    @include type-headline-6;
+  }
+}

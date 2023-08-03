@@ -1,0 +1,46 @@
+@namespace svg "http://www.w3.org/2000/svg";
+
+:not(svg|*) {
+  all: unset;
+  display: revert;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#__next {
+  height: 100%;
+}
+
+html {
+  font-size: 10px;
+  scroll-padding-top: 16.4rem;
+
+  @include respond-to(tablet-l) {
+    scroll-padding-top: 9.5rem;
+  }
+}
+
+body {
+  font-family: $type-family;
+  @include type-paragraph-l;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+button,
+input,
+textarea,
+select {
+  font-family: inherit;
+  font-weight: inherit;
+  font-size: inherit;
+  color: inherit;
+}

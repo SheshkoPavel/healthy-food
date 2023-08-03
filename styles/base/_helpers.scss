@@ -1,0 +1,98 @@
+.h-type-headline-1 {
+  @include type-headline-1;
+  color: $color-dark-slate;
+}
+
+.h-type-headline-2 {
+  @include type-headline-2;
+  color: $color-dark-slate;
+}
+
+.h-type-headline-3 {
+  @include type-headline-3;
+  color: $color-dark-slate;
+}
+
+.h-type-headline-4 {
+  @include type-headline-4;
+  color: $color-dark-slate;
+}
+
+.h-type-headline-5 {
+  @include type-headline-5;
+  color: $color-dark-slate;
+}
+
+.h-type-headline-6 {
+  @include type-headline-6;
+  color: $color-dark-slate;
+}
+
+.h-type-quote-1 {
+  @include type-quote-1;
+  color: $color-primary-slate;
+}
+
+.h-type-paragraph-l {
+  @include type-paragraph-l;
+  color: $color-dark-slate--body;
+}
+
+.h-type-paragraph-m {
+  @include type-paragraph-m;
+  color: $color-dark-slate--body;
+}
+
+.h-type-paragraph-s {
+  @include type-paragraph-s;
+  color: $color-dark-slate--body;
+}
+
+.h-type-legal-text {
+  @include type-legal-text;
+  color: $color-dark-slate--body;
+}
+
+.h-padding-6 {
+  padding: 6 * $indent;
+}
+
+.h-margin-b-2 {
+  margin-bottom: 2 * $indent;
+}
+
+.h-margin-b-3 {
+  margin-bottom: 3 * $indent;
+}
+
+.h-margin-b-4 {
+  margin-bottom: 4 * $indent;
+}
+
+.h-margin-b-6 {
+  margin-bottom: 6 * $indent;
+}
+
+.h-margin-t-2 {
+  margin-top: 2 * $indent;
+}
+
+.h-margin-t-4 {
+  margin-top: 4 * $indent;
+}
+
+.h-margin-t-6 {
+  margin-top: 6 * $indent;
+}
+
+.h-margin-t-12 {
+  margin-top: 12 * $indent;
+}
+
+.h-margin-t-13 {
+  margin-top: 13 * $indent;
+}
+
+.h-margin-t-16 {
+  margin-top: 16 * $indent;
+}

@@ -1,0 +1,92 @@
+.l-layout {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  padding-top: 16.4rem;
+  background-color: $color-bg;
+
+  &--bg-pattern::before {
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    content: '';
+    background: linear-gradient(to top, $color-bg, transparent 100%), url("/assets/img/development/pattern-01.svg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    opacity: 0.2;
+
+    @include respond-to(tablet-l) {
+      background-size: 150%;
+    }
+
+    @include respond-to(mobile) {
+      background-size: 300%;
+      background-position: center top;
+    }
+  }
+
+  @include respond-to(tablet-l) {
+    padding-top: 9.5rem;
+    // overflow-x: hidden;
+    // overflow-y: auto;
+  }
+}
+
+.l-layout__header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 16.4rem;
+  z-index: 1;
+  max-width: 80vw;
+  margin: 0 auto;
+
+  @include respond-to(tablet-l) {
+    height: 9.5rem;
+  }
+}
+
+.l-layout__content {
+  padding: 0 10rem;
+  max-width: 70vw;
+  margin: 0 auto;
+
+  @include respond-to(tablet) {
+    padding: 0 (12 * $indent);
+  }
+
+  @include respond-to(mobile) {
+    padding: 0 (6 * $indent);
+  }
+}
+
+.l-layout__content {
+  flex-grow: 1;
+  position: relative;
+  z-index: 0;
+}
+
+.l-layout__footer {
+  position: relative;
+  z-index: 0;
+}
+
+.l-layout__modal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 3;
+}

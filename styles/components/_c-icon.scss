@@ -1,0 +1,69 @@
+.c-icon {
+  display: block;
+  width: 1.6rem;
+  height: 1.6rem;
+  background-color: $color-primary-black;
+  mask: no-repeat center center;
+  mask-size: contain;
+  transition: background-color $motion;
+
+  &--arrow-right {
+    mask-image: url("/assets/icons/arrow-right.svg");
+  }
+
+  &--checkbox-checked {
+    mask-image: url("/assets/icons/checkbox-checked.svg");
+  }
+
+  &--checkbox-not-checked {
+    mask-image: url("/assets/icons/checkbox-not-checked.svg");
+  }
+
+  &--radio-checked {
+    mask-image: url("/assets/icons/radio-checked.svg");
+  }
+
+  &--radio-not-checked {
+    mask-image: url("/assets/icons/radio-not-checked.svg");
+  }
+
+  &--search {
+    mask-image: url("/assets/icons/search.svg");
+  }
+
+  &--arrow-down-v {
+    mask-image: url("/assets/icons/arrow-down--v.svg");
+  }
+
+  &--arrow-up-v {
+    mask-image: url("/assets/icons/arrow-up--v.svg");
+  }
+
+  &--close {
+    mask-image: url("/assets/icons/close.svg");
+  }
+
+  &--humburger {
+    mask-image: url("/assets/icons/hamburger.svg");
+  }
+
+  &--ellipsis {
+    mask-image: url("/assets/icons/ellipsis.svg");
+  }
+
+  &--caret-down {
+    mask-image: url("/assets/icons/arrow-down--v.svg");
+  }
+
+  &--like {
+    mask-image: url("/assets/icons/like--white.svg");
+  }
+
+  &--share {
+    mask-image: url("/assets/icons/share--white.svg");
+  }
+
+  &--added {
+    mask-image: url("/assets/icons/calendar-added--white.svg");
+  }
+}

@@ -1,0 +1,85 @@
+.rnc__notification-container--top-right {
+  width: fit-content;
+
+  @include respond-to(mobile) {
+    left: 6 * $indent;
+    right: 6 * $indent;
+  }
+}
+
+.rnc__notification-container--top-right .rnc__notification {
+  width: fit-content !important;
+}
+
+.rnc__notification-item {
+  box-shadow: none;
+  margin-bottom: 0;
+}
+
+.rnc__notification-item--success {
+  background-color: $color-secondary-olive--light;
+  border-left: none;
+  border-radius: $border-radius-m;
+  box-shadow: 0 0 0 0.15rem $color-secondary-olive;
+}
+
+.rnc__notification-item--danger {
+  background-color: $color-secondary-red--light;
+  border-left: none;
+  border-radius: $border-radius-m;
+  box-shadow: 0 0 0 0.15rem $color-secondary-red;
+}
+
+.rnc__notification-content {
+  padding: 6 * $indent;
+}
+
+.rnc__notification-message {
+  width: fit-content;
+  max-width: initial;
+  display: flex;
+  gap: 4 * $indent;
+  align-items: center;
+  color: $color-primary-black;
+  @include type-paragraph-l;
+}
+
+.rnc__notification-message::before {
+  display: block;
+  flex-shrink: 0;
+  content: '';
+  width: 3.2rem;
+  height: 3.2rem;
+  border-radius: 50%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 1.6rem;
+
+  .rnc__notification-item--success & {
+    background-size: 3.2rem;
+    background-color: $color-primary-white;
+    background-image: url("/assets/icons/calendar-added--olive.svg");
+  }
+
+  .rnc__notification-item--danger & {
+    background-color: $color-secondary-red;
+    background-image: url("/assets/icons/close--white.svg");
+  }
+}
+
+.rnc__notification-timer {
+  width: 0;
+}
+
+.rnc__notification-content {
+  display: flex;
+  align-items: center;
+}
+
+.rnc__notification-close-mark {
+  display: none;
+}
+
+.rnc__notification-title {
+  display: none;
+}

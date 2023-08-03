@@ -1,0 +1,1091 @@
+.c-carousel {
+  & .carousel .slider.animated {
+    transition: all 1.8s cubic-bezier(0.47,0.01,0.4,0.99);
+    transition-delay: 0.3s !important;
+  }
+
+  & .slide {
+    transition: all 1.8s cubic-bezier(0.47,0.01,0.4,0.99);
+    transition-delay: 0.3s !important;
+  }
+
+  & .slide.selected {
+    opacity: 1;
+  }
+
+  & .slide.previous:not(.slide.selected) {
+    opacity: 0.1;
+  }
+
+  & .thumbs-wrapper {
+    margin: (6 * $indent) 0;
+    padding: 0 (8 * $indent);
+  }
+
+  & .thumbs,
+  & .thumbs.animated {
+    display: flex;
+    gap: 4 * $indent;
+    justify-content: center;
+    padding: 0 (15 * $indent);
+
+    @include respond-to(tablet-l) {
+      padding: 0 (8 * $indent);
+    }
+
+    @include respond-to(tablet) {
+      padding: 0 (6 * $indent);
+    }
+  }
+
+  & .thumb {
+    width: auto;
+    min-width: auto;
+    padding: 0;
+    margin: 0;
+    flex-grow: 1;
+    border: none !important;
+    border-radius: $border-radius-m;
+    transition: none !important;
+  }
+
+  & .thumb.selected {
+    background-color: $color-primary-sandstone--light;
+  }
+
+  & .thumbs-wrapper .control-arrow.control-prev,
+  & .thumbs-wrapper .control-arrow.control-next {
+    display: none;
+  }
+
+  & iframe {
+    width: 100% !important;
+    height: auto !important;
+    aspect-ratio: 16 / 9 !important;
+    margin: 0 !important;
+    padding-left: 8 * $indent !important;
+    padding-right: 8 * $indent !important;
+
+    @include respond-to(mobile) {
+      width: auto !important;
+      height: 100% !important;
+      aspect-ratio: 20 / 9 !important;
+      padding-left: 0 !important;
+      padding-right: 0 !important;
+    }
+  }
+}
+
+.player-wrapper {
+  position: relative;
+  // padding-top: 56.25%; /* Player ratio: 100 / (1280 / 720) */
+}
+
+.react-player {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.react-player > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+// simple
+
+.c-carousel-simple {
+  width: 100%;
+  height: 100%;
+}
+
+.c-carousel-simple__inner {
+  width: 100%;
+  margin-bottom: 6 * $indent;
+  overflow: hidden;
+}
+
+.c-carousel-simple__slide {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  aspect-ratio: 2.33 / 1;
+
+  @include respond-to(mobile) {
+    aspect-ratio: 2 / 3;
+  }
+}
+
+// actions (common)
+
+.c-carousel__header {
+  &--disabled {
+    display: none;
+  }
+}
+
+.c-carousel__slide-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.c-carousel__actions-wrapper {
+  height: 4rem;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+
+  &--disabled {
+    display: none;
+  }
+
+  &--mosaic {
+    position: absolute;
+    bottom: 0;
+    right: calc((100% - (27 * $indent) - ((6 * $indent) / 2) - ((33.333% - (6 * $indent) / 2) / 2 - (6 * $indent) / 2) - (33.333% - (6 * $indent) / 2)) / 2 + (27 * $indent) - (19.5rem / 2) - 3 * (6 * $indent) / 2 + 10rem / 2);
+
+    @include respond-to(tablet) {
+      right: calc((100% - (27 * $indent) - ((6 * $indent) / 2) - ((33.333% - (6 * $indent) / 2) / 2 - (6 * $indent) / 2) - (33.333% - (6 * $indent) / 2)) / 2 + (27 * $indent) - (19.5rem / 2) - 3 * (6 * $indent) / 2 + (12 * $indent) / 2);
+    }
+  }
+
+  @include respond-to(mobile) {
+    padding: 0 (6 * $indent);
+  }
+}
+
+.c-carousel__actions {
+  width: 19.5rem;
+  height: 100%;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+
+  @include respond-to(mobile) {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  &--constant-width {
+    @include respond-to(mobile) {
+      width: 19.5rem;
+      justify-content: center;
+    }
+  }
+}
+
+.c-carousel__action {
+  width: 4rem;
+  min-width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  background-color: $color-primary-slate;
+  background-size: 1.6rem;
+  background-repeat: no-repeat;
+  background-position: center;
+  cursor: pointer;
+
+  &--prev {
+    background-image: url("/assets/icons/arrow-left--white.svg")
+    ;
+  }
+
+  &--next {
+    background-image: url("/assets/icons/arrow-right--white.svg");
+  }
+}
+
+.c-carousel__status {
+  width: 11.5rem;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  color: $color-dark-slate;
+  @include type-headline-6;
+}
+
+.c-carousel__status-current {
+  flex: 1 1 0;
+  text-align: right;
+}
+
+.c-carousel__status-total {
+  flex: 1 1 0;
+  text-align: left;
+}
+
+.c-carousel__status-divider {
+  width: 1rem;
+  flex: 0 0 auto;
+  text-align: center;
+}
+
+// mosaic
+
+.c-carousel-mosaic {
+  position: relative;
+  margin: 0 auto;
+}
+
+.c-carousel-mosaic__inner {
+  width: 100%;
+}
+
+.c-carousel-mosaic__row-1 {
+  display: flex;
+  gap: 6 * $indent;
+  flex-wrap: nowrap;
+  align-items: flex-end;
+  margin-bottom: 6 * $indent;
+}
+
+.c-carousel-mosaic__row-2 {
+  display: flex;
+  gap: 6 * $indent;
+  flex-wrap: nowrap;
+  align-items: flex-start;
+}
+
+.c-carousel-mosaic__item {
+  position: relative;
+  // overflow: hidden;
+
+  &--left-top {
+    width: calc((75% - 3 * (6 * $indent) / 2) / 2);
+    aspect-ratio: 1 / 1;
+  }
+
+  &--center-top {
+    width: calc((75% - 3 * (6 * $indent) / 2) / 2);
+    aspect-ratio: 1 / 1;
+  }
+
+  &--right-top {
+    width: calc(25% - (6 * $indent) / 2);
+    aspect-ratio: 1 / 1;
+  }
+
+  &--left-bottom {
+    width: calc((33.333% - (6 * $indent) / 2) / 2 - (6 * $indent) / 2);
+    aspect-ratio: 1 / 1;
+  }
+
+  &--center-bottom {
+    width: calc(33.333% - (6 * $indent) / 2);
+    aspect-ratio: 1 / 1;
+  }
+
+  &--right-bottom {
+    width: calc(100% - (27 * $indent) - ((6 * $indent) / 2) - ((33.333% - (6 * $indent) / 2) / 2 - (6 * $indent) / 2) - (33.333% - (6 * $indent) / 2));
+    aspect-ratio: 16 / 9;
+  }
+}
+
+.c-carousel-mosaic__item-brand {
+  width: 65%;
+  aspect-ratio: 1 / 1;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.c-carousel-mosaic__item-building {
+  width: 85%;
+  // width: 100%;
+  aspect-ratio: 1 / 1;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+
+// mosaic--mobile
+
+.c-carousel-mosaic--mobile {
+  width: 100%;
+  height: 100%;
+
+  @include respond-to(mobile) {
+    width: calc(100% + (6 * $indent) * 2);
+    margin-left: -(6 * $indent);
+    margin-right: -(6 * $indent);
+  }
+}
+
+.c-carousel-mosaic--mobile-brand-left {
+  & .c-carousel-mosaic--mobile__header {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+  }
+}
+
+.c-carousel-mosaic--mobile-brand-right {
+  & .c-carousel-mosaic--mobile__header {
+    position: relative;
+    width: 100%;
+    height: calc(41rem + 6rem);//to do $screen-mobile when get correct image
+    background-color: $color-bg;//to do cut when get correct image
+    overflow: hidden;
+
+    @include respond-to(mobile) {
+      height: 46rem;
+    }
+  }
+}
+
+.c-carousel-mosaic--mobile-brand-left {
+  & .c-carousel-mosaic--mobile__header-brand {
+      width: 65%;
+      aspect-ratio: 1 / 1;
+      position: absolute;
+      left: 6 * $indent;
+      top: 0;
+  }
+
+  & .c-carousel-mosaic--mobile__header-building {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+  }
+}
+
+.c-carousel-mosaic--mobile-brand-right {
+  & .c-carousel-mosaic--mobile__header-brand {
+    width: 28.9rem;
+    height: 28.9rem;
+    position: absolute;
+    right: -9rem;
+    top: 0;
+  }
+
+  & .c-carousel-mosaic--mobile__header-building {
+    width: 100%;
+    height: 41rem;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+}
+
+.c-carousel-mosaic--mobile__inner {
+  width: 100%;
+  margin-top: 6 * $indent;
+  margin-bottom: 6 * $indent;
+}
+
+.c-carousel-mosaic--mobile__slide {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  padding: 0 (6 * $indent);
+}
+
+// bordered
+
+.c-carousel-bordered {
+  width: 100%;
+  height: 100%;
+
+  @include respond-to(tablet) {
+    width: calc(100% + 2 * (12 * $indent));
+    margin-left: -12 * $indent;
+    margin-right: -12 * $indent;
+  }
+
+  @include respond-to(mobile) {
+    width: calc(100% + 2 * (6 * $indent));
+    margin-left: -6 * $indent;
+    margin-right: -6 * $indent;
+  }
+}
+
+.c-carousel-bordered__inner {
+  width: 100%;
+  margin-bottom: 6 * $indent;
+  border-bottom: 1px solid $color-primary-clay;
+
+  @include respond-to(tablet) {
+    border-bottom: none;
+  }
+}
+
+.c-carousel-bordered__slide-legend {
+  padding: (4 * $indent) 0 (6 * $indent);
+  color: $color-dark-slate--body;
+  @include type-paragraph-m;
+  text-align: left;
+
+  &--square {
+    padding: (6 * $indent) 0;
+  }
+
+  @include respond-to(tablet) {
+    padding: (4 * $indent) (12 * $indent) 0;
+  }
+
+  @include respond-to(mobile) {
+    padding: (4 * $indent) (6 * $indent) 0;
+    @include type-paragraph-s;
+  }
+}
+
+.c-carousel-bordered__slide-border {
+  display: none;
+
+  @include respond-to(tablet) {
+    display: block;
+    height: 1px;
+    width: 100%;
+    margin-top: 6 * $indent;
+    background-color: $color-primary-clay;
+  }
+}
+
+.c-carousel-bordered__slide {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 3 / 2;
+  overflow: hidden;
+
+  &--square {
+    aspect-ratio: 1 / 1;
+  }
+
+  @include respond-to(tablet) {
+    padding: 0 (12 * $indent);
+  }
+
+  @include respond-to(mobile) {
+    height: 100%;
+    padding: 0 (6 * $indent);
+  }
+}
+
+// thumbnails
+
+.c-carousel-thumbnails {
+  width: 100%;
+  height: 100%;
+
+  & .c-carousel-thumbnails__actions-wrapper {
+    display: none;
+  }
+
+  @include respond-to(mobile) {
+    & .c-carousel-thumbnails__actions-wrapper {
+      display: flex;
+    }
+
+    & .thumbs-wrapper {
+      display: none;
+    }
+  }
+}
+
+.c-carousel-thumbnails__inner {
+  width: 100%;
+  overflow: hidden;
+
+  @include respond-to(mobile) {
+    height: calc(58.5rem + 18.6rem);
+    margin-bottom: 6 * $indent;
+  }
+}
+
+.c-carousel-thumbnails__slide-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  aspect-ratio: 2.33 / 1;
+
+  @include respond-to(mobile) {
+    height: calc(58.5rem + 18.6rem);
+  }
+}
+
+.c-carousel-thumbnails__slide {
+  position: relative;
+  width: 100%;
+  height: 100%;
+
+  @include respond-to(mobile) {
+    height: 58.5rem;
+  }
+}
+
+.c-carousel-thumbnails__slide-card {
+  position: absolute;
+  bottom: calc(50% - 37.7rem / 2);
+  right: 6.8rem;
+  width: 39.8rem;
+  height: 37.7rem;
+  padding: 8 * $indent;
+  background-color: $color-bg;
+
+  @include respond-to(tablet) {
+    width: 34.2rem;
+    height: 31.2rem;
+    bottom: calc(50% - 31.2rem / 2);
+  }
+
+  @include respond-to(mobile) {
+    width: 34.2rem;
+    height: 31.2rem;
+    bottom: 0;
+    right: calc(50% - 34.2rem / 2);
+  }
+}
+
+.c-carousel-thumbnails__slide-title {
+  margin-bottom: 3 * $indent;
+  color: $color-dark-slate;
+  @include type-headline-3;
+  @include type-overflow;
+  text-align: left;
+
+  @include respond-to(mobile) {
+    margin-bottom: 4 * $indent;
+    @include type-headline-4;
+  }
+}
+
+.c-carousel-thumbnails__slide-type {
+  height: 9.6rem;
+  margin-bottom: 6 * $indent;
+  color: $color-dark-slate--body;
+  -webkit-line-clamp: 4;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  @include type-paragraph-s;
+  text-align: left;
+
+  @include respond-to(tablet) {
+    -webkit-line-clamp: 3;
+    height: 7.2rem;
+  }
+}
+
+.c-carousel-thumbnails__slide-date {
+  margin-bottom: 5.3rem;
+  color: $color-dark-slate--body;
+  @include type-paragraph-s;
+  @include type-overflow;
+  text-align: left;
+
+  @include respond-to(tablet) {
+    margin-bottom: 6 * $indent;
+  }
+}
+
+.c-carousel-thumbnails__thumbs-wrapper {
+  display: flex;
+  gap: 4 * $indent;
+  justify-content: center;
+  margin: (6 * $indent) 0;
+  padding: 0 (23 * $indent);
+
+  @include respond-to(tablet-l) {
+    padding: 0 (12 * $indent);
+  }
+
+  @include respond-to(tablet) {
+    gap: 2 * $indent;
+    padding: 0 (8 * $indent);
+  }
+
+  @include respond-to(mobile) {
+    display: none;
+  }
+}
+
+.c-carousel__thumb {
+  width: calc((100% - 2 * (4 * $indent)) / 3);
+  display: flex;
+  gap: 4 * $indent;
+  flex-wrap: nowrap;
+  align-items: flex-start;
+  padding: 2 * $indent;
+  border-radius: $border-radius-m;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &--active {
+    background-color: $color-primary-sandstone--light;
+  }
+
+  @include respond-to(tablet) {
+    width: calc((100% - 2 * (2 * $indent)) / 3);
+  }
+}
+
+.c-carousel__thumb-image-wrapper {
+  flex-shrink: 0;
+  width: 8.2rem;
+  height: 8.2rem;
+  border-radius: $border-radius-m;
+  overflow: hidden;
+}
+
+.c-carousel__thumb-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.c-carousel__thumb-type {
+  overflow: hidden;
+}
+
+.c-carousel__thumb-title {
+  margin-bottom: (2 * $indent);
+  color: $color-dark-slate;
+  @include type-headline-5;
+  @include type-overflow;
+}
+
+.c-carousel__thumb-date {
+  min-width: 0;
+  width: auto;
+  color: $color-dark-slate--body;
+  @include type-paragraph-s;
+  @include type-overflow;
+}
+
+// computed
+
+.c-carousel-computed {
+  position: relative;
+
+  @include respond-to(mobile) {
+    margin-bottom: calc((6 * $indent) + 8rem + (11 * $indent));
+  }
+}
+
+.c-carousel-computed-tabs__wrapper {/*toggle actions for carousel-computed-tabs*/
+  @include respond-to(tablet) {
+    margin-bottom: calc((6 * $indent) + 8rem + (11 * $indent));/**/
+  }
+
+  @include respond-to(mobile) {
+    padding-right: 0;
+  }
+}
+
+.c-carousel-computed__header {
+  min-height: 4rem;
+  margin-bottom: 6 * $indent;
+}
+
+.c-carousel-computed__title {
+  color: $color-dark-slate;
+  @include type-headline-4;
+}
+
+.c-carousel-computed-tabs__header {
+  min-height: 12.2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  margin-bottom: -1px;
+
+  & .c-carousel-computed__title {
+    margin-bottom: 2.2rem;
+    @include type-headline-3;
+  }
+}
+
+.c-carousel-computed-tabs__wrapper .c-carousel-computed__tabs,
+.c-carousel-computed-tabs-full .c-carousel-computed__tabs {
+  display: flex;
+  gap: 0;
+
+  @include respond-to(tablet-l) {
+    width: calc(100% + 2 * 10rem);
+    margin-left: -10rem;
+    margin-right: -10rem;
+    display: flex;
+    gap: 0;
+    overflow-x: auto;
+  }
+
+  @include respond-to(tablet) {
+    width: calc(100% + 2 * (12 * $indent));
+    margin-left: -12 * $indent;
+    margin-right: -12 * $indent;
+  }
+
+  @include respond-to(mobile) {
+    width: calc(100% + 2 * (6 * $indent));
+    margin-left: -6 * $indent;
+    margin-right: -6 * $indent;
+  }
+}
+
+.c-carousel-computed-tabs__wrapper .c-carousel-computed__tabs::before,
+.c-carousel-computed-tabs-full .c-carousel-computed__tabs::before {
+  display: none;
+
+  @include respond-to(tablet-l) {
+    display: block;
+    flex: 0 0 auto;
+    width: 10rem;
+    content: '';
+  }
+
+  @include respond-to(tablet) {
+    width: 12 * $indent;
+  }
+
+  @include respond-to(mobile) {
+    width: 6 * $indent;
+  }
+}
+
+.c-carousel-computed-tabs__wrapper .c-carousel-computed__tabs::after,
+.c-carousel-computed-tabs-full .c-carousel-computed__tabs::after {
+  display: none;
+
+  @include respond-to(tablet-l) {
+    display: block;
+    flex: 0 0 auto;
+    width: 10rem;
+    content: '';
+  }
+
+  @include respond-to(tablet) {
+    width: 12 * $indent;
+  }
+
+  @include respond-to(mobile) {
+    width: 6 * $indent;
+  }
+}
+
+.c-carousel-computed__tabs-items-wrapper {
+  flex-grow: 1;
+  display: flex;
+  gap: 0;
+  box-shadow: inset 0 -2px 0 0 rgba(157, 150, 141, 0.5);
+}
+
+.c-carousel-computed-tabs__wrapper .c-carousel-computed__tabs::-webkit-scrollbar,
+.c-carousel-computed-tabs-full .c-carousel-computed__tabs::-webkit-scrollbar {
+  display: none;
+}
+
+.c-carousel-computed-tabs__wrapper .c-carousel-computed__tab,
+.c-carousel-computed-tabs-full .c-carousel-computed__tab {
+  margin-right: 10 * $indent;
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+.c-carousel__actions-wrapper-computed {
+  position: absolute;
+  top: 0;
+  right: 0;
+
+  &-tabs {
+    top: 14 * $indent;
+
+    @include respond-to(tablet) {/*toggle actions for carousel-computed-tabs*/
+      width: 100%;
+      height: 8rem;
+      top: calc(100% + (6 * $indent));
+      display: flex;
+      flex-direction: column-reverse;
+      align-items: center;
+    }/**/
+  }
+
+  @include respond-to(mobile) {
+    width: 100%;
+    height: 8rem;
+    top: calc(100% + (6 * $indent));
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+  }
+}
+
+.c-carousel__actions-wrapper-computed-tabs .c-carousel__actions-computed {
+  @include respond-to(tablet) {/*toggle actions for carousel-computed-tabs*/
+    width: 100%;
+    margin-left: 0;
+    margin-bottom: 4 * $indent;
+  }/**/
+}
+
+.c-carousel__actions-link.c-carousel__actions-link--disabled {
+  display: none;
+}
+
+.c-carousel__actions-computed {
+  width: 11.3rem;
+  justify-content: space-between;
+  margin-left: (10 * $indent);
+
+  @include respond-to(mobile) {
+    width: 100%;
+    margin-left: 0;
+    margin-bottom: 4 * $indent;
+  }
+
+  &--disabled {
+    display: none;
+  }
+}
+
+.c-carousel__status-computed {
+  width: 3.3rem;
+
+  & * {
+    display: none;
+  }
+}
+
+.c-carousel-computed__body {
+  padding-top: 6 * $indent;
+  border-top: 0.25rem solid $color-primary-clay;
+
+  .c-carousel-computed-tabs__wrapper & {
+    border-top: none;
+  }
+}
+
+.c-carousel-computed__slides {
+  display: flex;
+  gap: 6 * $indent;
+  overflow-x: hidden;
+  margin: 0 -10rem;
+  scroll-behavior: smooth;
+
+  @include respond-to(tablet) {
+    margin: 0 (-12 * $indent);
+  }
+
+  @include respond-to(mobile) {
+    margin: 0 (- 6 * $indent);
+  }
+}
+
+.c-carousel-computed__slides::before {
+  flex: 0 0 auto;
+  width: calc(10rem - (6 * $indent));
+  content: '';
+
+  @include respond-to(tablet) {
+    width: calc((12 * $indent) - (6 * $indent));
+  }
+
+  @include respond-to(mobile) {
+    width: calc((6 * $indent) - (6 * $indent));
+  }
+}
+
+.c-carousel-computed__slides::after {
+  flex: 0 0 auto;
+  width: calc(10rem - (6 * $indent));
+  content: '';
+
+  @include respond-to(tablet) {
+    width: calc((12 * $indent) - (6 * $indent));
+  }
+
+  @include respond-to(mobile) {
+    width: calc((6 * $indent) - (6 * $indent));
+  }
+}
+
+.c-carousel-computed__slide {
+  flex: 0 0 auto;
+  width: calc((100% - 2 * 10rem - 3 * (6 * $indent)) / 4);
+
+  // @include respond-from(desktop-l) {
+  //   .c-carousel-computed__slide {
+  //     width: calc((100% - 2 * 10rem - 5 * (6 * $indent)) / 6);
+  //   }
+  // }
+
+  // @include respond-from(desktop) {
+  //   .c-carousel-computed__slide {
+  //     width: calc((100% - 2 * 10rem - 4 * (6 * $indent)) / 5);
+  //   }
+  // }
+
+  // @include respond-to(tablet-l) {
+  //   .c-carousel-computed__slide {
+  //     width: calc((100% - 2 * 10rem - 2 * (6 * $indent)) / 3);
+  //   }
+  // }
+
+  // @include respond-to(tablet) {
+  //   .c-carousel-computed__slide {
+  //     width: calc((100% - 2 * (12 * $indent) - 2 * (6 * $indent)) / 3);
+  //   }
+  // }
+
+  // @include respond-to(mobile) {
+  //   .c-carousel-computed__slide {
+  //     width: calc((100% - 2 * (6 * $indent) - (6 * $indent) - 9.6rem) / 2);
+  //   }
+  // }
+
+  // @include respond-to(mobile-s) {
+  //   .c-carousel-computed__slide {
+  //     width: calc(100% - (6 * $indent) - (4 * $indent) - 9.6rem);
+  //   }
+  // }
+}
+
+@media (min-width: 1440px) {
+
+  .c-carousel-computed__slide {
+    width: calc((100% - 2 * 10rem - 4 * (6 * $indent)) / 5);
+  }
+}
+
+@media (min-width: 1920px) {
+
+  .c-carousel-computed__slide {
+    width: calc((100% - 2 * 10rem - 5 * (6 * $indent)) / 6);
+  }
+}
+
+@media (max-width: 1200px) {
+
+  .c-carousel-computed__slide {
+    width: calc((100% - 2 * 10rem - 2 * (6 * $indent)) / 3);
+  }
+}
+
+@media (max-width: 1024px) {
+
+  .c-carousel-computed__slide {
+    width: calc((100% - 2 * (12 * $indent) - 2 * (6 * $indent)) / 3);
+  }
+}
+
+@media (max-width: 768px) {
+
+  .c-carousel-computed__slide {
+    width: calc((100% - 2 * (6 * $indent) - (6 * $indent) - 9.6rem) / 2);
+  }
+}
+
+@media (max-width: 576px) {
+
+  .c-carousel-computed__slide {
+    width: calc(100% - (6 * $indent) - (4 * $indent) - 9.6rem);
+  }
+}
+
+// carousel computed full as container
+
+.c-carousel-computed-full {
+  position: relative;
+}
+
+.c-carousel-computed-full__header {
+  min-height: 4rem;
+  margin-bottom: 6 * $indent;
+}
+
+.c-carousel-computed-full__title {
+  color: $color-dark-slate;
+  @include type-headline-4;
+}
+
+.c-carousel-computed-full .c-carousel-computed-full__link {
+  position: absolute;
+  top: 2 * $indent;
+  right: 0;
+
+  @include respond-to(mobile) {
+    top: initial;
+    bottom: 0;
+    right: 50%;
+    transform: translateX(50%);
+  }
+}
+
+.c-carousel-computed-full__body {
+  padding-top: 6 * $indent;
+  border-top: 0.25rem solid $color-primary-clay;
+
+  @include respond-to(mobile) {
+    padding-bottom: 6 * $indent;
+  }
+}
+
+.c-carousel-computed-full__slides {
+  display: flex;
+  gap: (6 * $indent);
+}
+
+// carousel computed tabs full container
+
+.c-carousel-computed-tabs-full {
+  position: relative;
+}
+
+.c-carousel-computed-tabs-full__header {
+  min-height: 12.2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  margin-bottom: -1px;
+
+  & .c-carousel-computed__title {
+    margin-bottom: 2.2rem;
+    @include type-headline-3;
+  }
+}
+
+.c-carousel-computed-tabs-full .c-carousel-computed-tabs-full__link {
+  position: absolute;
+  top: calc(12.2rem - 4rem - (6 * $indent));
+  right: 0;
+
+  @include respond-to(tablet) {
+    top: initial;
+    bottom: 0;
+    right: 50%;
+    transform: translateX(50%);
+  }
+}
+
+.c-carousel-computed-tabs-full__body {
+  padding-top: 6 * $indent;
+  border-top: 0.25rem solid $color-primary-clay;
+
+  @include respond-to(tablet) {
+    padding-bottom: 6 * $indent;
+  }
+}
+
+.c-carousel-computed-tabs-full__slides {
+  display: flex;
+  gap: (6 * $indent);
+}

@@ -1,0 +1,230 @@
+.react-datepicker-wrapper {
+  height: 4.8rem;
+  border-radius: $border-radius-m;
+  box-shadow: 0 0 0 0.1rem $color-primary-slate--medium;
+  background-color: $color-primary-white;
+  color: $color-dark-slate--body;
+  @include type-paragraph-s;
+}
+
+.react-datepicker__input-container {
+  height: 100%;
+}
+
+.react-datepicker__input-container input {
+  width: 100%;
+  height: 100%;
+  padding: 0 (4 * $indent);
+  border: none;
+  border-radius: $border-radius-m;
+  outline: none;
+
+  padding-right: calc((3 * $indent) + 2.2rem + (3 * $indent));
+  background-image: url("/assets/icons/calendar--slate.svg");
+  background-repeat: no-repeat;
+  background-position: right (3 * $indent) center;
+  background-size: 2.2rem;
+  color: $color-primary-slate--dark;
+}
+
+.react-datepicker__triangle {
+  display: none;
+}
+
+.react-datepicker-popper[data-placement^=bottom] {
+  padding-top: 2 * $indent;
+}
+
+.react-datepicker-popper[data-placement^=top] {
+  padding-bottom: 0;
+}
+
+.react-datepicker-popper {
+  @include respond-to(mobile) {
+    width: calc(100% - 2 * (6 * $indent) + 2px);
+    margin-left: -1px;
+  }
+}
+
+.react-datepicker {
+  padding: (6 * $indent) (6 * $indent) 0;
+  margin-top: 0;
+  border: 2px solid $color-primary-slate;
+  border-radius: $border-radius-m;
+  overflow: hidden;
+}
+
+.react-datepicker__month-container {
+  margin-right: 4 * $indent;
+}
+
+.react-datepicker__month-container:last-child {
+  margin-right: 0;
+}
+
+.react-datepicker__month {
+  margin: 0;
+}
+
+.react-datepicker__header {
+  padding: 0;
+  border-bottom: none;
+  background-color: $color-primary-white;
+}
+
+.react-datepicker__week {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 0 (2 * $indent);
+  // border-top: 1px solid $color-primary-clay;
+}
+
+.react-datepicker__day {
+  width: 2.4rem;
+  height: 2.4rem;
+  margin: 0;
+  padding: 0 $indent;
+  border-top: 1px solid $color-primary-clay;
+  border-radius: 0;
+  color: $color-dark-slate--body;
+  @include type-legal-text;
+
+  @include respond-to(mobile) {
+    // flex-grow: 1;
+  }
+}
+
+// .react-datepicker__day--keyboard-selected {
+// background-color: $color-primary-slate !important;
+// color: $color-primary-white !important;
+// }
+
+.react-datepicker__day--in-range {
+  background-color: $color-primary-sandstone--light;
+  color: $color-dark-slate--body;
+}
+
+.react-datepicker__day.react-datepicker__day--range-start,
+.react-datepicker__day.react-datepicker__day--range-end {
+  background-color: $color-primary-slate;
+  color: $color-primary-white;
+}
+
+.react-datepicker__day--in-range:hover,
+.react-datepicker__day--in-selecting-range:not(.react-datepicker__day--in-range, .react-datepicker__month-text--in-range, .react-datepicker__quarter-text--in-range, .react-datepicker__year-text--in-range) {
+  background-color: #f0f0f0;
+}
+
+.react-datepicker__day--outside-month {
+  visibility: hidden;
+}
+
+// custom components
+
+.react-datepicker__header-controls-wrapper-custom-component {
+  display: flex;
+
+  @include respond-to(mobile) {
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+}
+
+.react-datepicker__header-controls-wrapper-custom-component--simple {
+  justify-content: space-between;
+  margin-bottom: 6 * $indent;
+
+  & .react-datepicker__action-button-custom-component {
+    color: $color-primary-slate--dark;
+    @include type-headline-6;
+    font-size: 1.4rem;
+    line-height: 4rem;
+    letter-spacing: normal;
+  }
+}
+
+.react-datepicker__action-button-custom-component {
+  border: none;
+
+  &--prev {
+    margin-right: 2 * $indent;
+  }
+
+  &--next {
+    margin-left: 2 * $indent;
+  }
+
+  @include respond-to(mobile) {
+    order: 2;
+  }
+}
+
+.react-datepicker__month-header-custom-component {
+  margin-top: 13 * $indent;
+  margin-bottom: 4 * $indent;
+  color: $color-dark-slate;
+  @include type-headline-6;
+  letter-spacing: normal;
+
+  @include respond-to(mobile) {
+    margin-top: 0;
+  }
+}
+
+// use for default select only on development/dropdown
+.react-datepicker__select-custom-component {
+  width: 100%;
+  margin-right: $indent;
+  padding: (3 * $indent) (4 * $indent);
+  border-radius: $border-radius-m;
+  border-color: $color-primary-slate--dark;
+  color: $color-primary-slate--dark;
+  outline: none;
+  @include type-paragraph-s;
+
+  &:last-of-type {
+    margin-right: 0;
+  }
+
+  @include respond-to(mobile) {
+    width: calc(50% - (4 * $indent) / 2);
+    margin-bottom: 4 * $indent;
+    order: 1;
+  }
+}
+
+// use base-dropdown only on filter
+.react-datepicker__base-dropdown-wrapper-custom-component {
+  width: 100%;
+  margin-right: $indent;
+
+  &:last-of-type {
+    margin-right: 0;
+  }
+
+  &--month {
+    @include respond-to(mobile) {
+      width: calc(60% - (4 * $indent) / 2);
+      margin-bottom: 4 * $indent;
+      order: 1;
+    }
+  }
+
+  &--year {
+    @include respond-to(mobile) {
+      width: calc(40% - (4 * $indent) / 2);
+      margin-bottom: 4 * $indent;
+      order: 1;
+    }
+  }
+}
+
+.react-datepicker__option-custom-component {
+  display: block;
+  height: 4rem;
+  padding: (3 * $indent) 0;
+  background-color: $color-primary-white;
+  color: $color-primary-slate--dark;
+  @include type-paragraph-s;
+}

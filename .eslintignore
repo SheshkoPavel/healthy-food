@@ -1,0 +1,7 @@
+public
+git-ignored
+next.config.js
+storybook-static
+proxy.js
+jest.setup.js
+jest.config.js

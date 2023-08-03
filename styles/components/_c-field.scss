@@ -1,0 +1,25 @@
+.c-field {
+  width: 100%;
+}
+
+.c-field__label {
+  display: block;
+  margin-bottom: 2 * $indent;
+  color: $color-dark-slate--body;
+  @include type-paragraph-s;
+
+  &--error {
+    color: $color-secondary-red;
+  }
+}
+
+.c-field__caption {
+  display: block;
+  margin-top: 2 * $indent;
+  color: $color-dark-slate--body;
+  @include type-legal-text;
+
+  &--error {
+    color: $color-secondary-red;
+  }
+}

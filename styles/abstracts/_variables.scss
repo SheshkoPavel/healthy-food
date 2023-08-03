@@ -1,0 +1,73 @@
+// typography
+
+$type-family:                     "DIN", sans-serif;
+$type-family--alt:                "Roboto", sans-serif;
+
+$type-weight-s:                   300;
+$type-weight-m:                   400;
+$type-weight-l:                   600;
+
+// colors
+
+$color-primary-black:             #0A0A0A;
+$color-primary-black--medium:     rgba(10, 10, 10, 0.6);
+$color-primary-black--light:      rgba(10, 10, 10, 0.3);
+
+$color-primary-slate:             #ab6fe2;
+$color-primary-slate--dark:       rgba(105, 97, 88, 0.8);
+$color-primary-slate--medium:     rgba(105, 97, 88, 0.6);
+$color-primary-slate--light:      rgba(105, 97, 88, 0.3);
+
+$color-dark-slate:                #272523;
+$color-dark-slate--body:          #554F48;
+
+$color-primary-clay:              #9D968D;
+$color-primary-clay--medium:      rgba(157, 150, 141, 0.6);
+$color-primary-clay--light:       rgba(157, 150, 141, 0.3);
+
+$color-primary-sandstone:         #D1CCBD;
+$color-primary-sandstone--medium: rgba(209, 204, 189, 0.6);
+$color-primary-sandstone--light:  rgba(209, 204, 189, 0.3);
+
+$color-primary-white:             #FFFFFF;
+
+$color-secondary-lightblue:       #C6D6E3;
+$color-secondary-yellow:          #E9EC6B;
+$color-secondary-olive:           #ABAD23;
+$color-secondary-olive--light:    rgba(171, 173, 35, 0.3);
+$color-secondary-red:             #A72B2A;
+$color-secondary-red--light:      rgba(167, 43, 42, 0.3);
+$color-secondary-brown:           #4e4540;
+$color-secondary-blue:            #7b8fab;
+$color-secondary-blue--light:     #dbe4ec;
+
+$color-utility-info-blue:         #93aabd;
+
+$color-red--light:                #dab4b1;
+
+$color-grey:                      #d6d6d6;
+
+$color-bg:                        #f1f8f5;
+
+// decorations
+
+$border-radius-m:                 0.6rem;
+$border-radius-l:                 3.2rem;
+
+// motion
+
+$motion:                          0.2s;
+
+// sizes
+
+$indent:                          0.4rem;
+
+// breakpoints
+
+$screen-desktop-l:                1920px;
+$screen-desktop:                  1440px;
+$screen-laptop:                   1280px;
+$screen-tablet-l:                 1200px;
+$screen-tablet:                   1024px;
+$screen-mobile:                   768px;
+$screen-mobile-s:                 576px;

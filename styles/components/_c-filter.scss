@@ -1,0 +1,127 @@
+.c-filter {
+  display: flex;
+  gap: 4 * $indent;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  padding: (6 * $indent) (4 * $indent);
+  border-radius: $border-radius-m;
+  background-color: $color-primary-sandstone--light;
+
+  @include respond-to(mobile) {
+    gap: 6 * $indent;
+    padding: (6 * $indent);
+  }
+}
+
+.c-filter__categories {
+  display: flex;
+  gap: 6 * $indent;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: flex-end;
+
+  @include respond-to(mobile) {
+    flex-direction: column;
+  }
+}
+
+.c-filter__controls {
+  display: flex;
+  gap: 6 * $indent;
+  justify-content: space-between;
+  align-items: center;
+
+  @include respond-to(mobile) {
+    flex-direction: column-reverse;
+  }
+}
+
+.c-filter__applied-options {
+  width: calc(75% - (6 * $indent) / 2);
+  display: flex;
+  gap: 8 * $indent;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
+
+  @include respond-to(tablet) {
+    width: calc(70% - (6 * $indent) / 2);
+  }
+
+  @include respond-to(mobile) {
+    width: 100%;
+    padding-top: 6 * $indent;
+    border-top: 2px solid rgba($color-dark-slate, 0.1);
+  }
+}
+
+.c-filter__buttons {
+  width: calc((100% - 3 * (6 * $indent)) / 4 - (6 * $indent) / 2);
+  display: flex;
+  gap: 6 * $indent;
+  justify-content: center;
+  align-items: center;
+
+  @include respond-to(tablet) {
+    width: calc(32% - (6 * $indent) / 2);
+  }
+
+  @include respond-to(mobile) {
+    width: 100%;
+    flex-direction: column-reverse;
+  }
+}
+
+.c-filter__button {
+  flex-shrink: 0;
+
+  &--search {
+    flex-grow: 1;
+
+    @include respond-to(mobile) {
+      width: 100%;
+    }
+  }
+}
+
+.c-filter__buttons-label {
+  display: none;
+}
+
+.c-filter--vertical {
+  gap: 6 * $indent;
+
+  & .c-filter__controls {
+    flex-direction: column-reverse;
+  }
+
+  & .c-filter__buttons {
+    width: 100%;
+    flex-direction: column-reverse;
+  }
+
+  & .c-filter__button--search {
+    width: 100%;
+  }
+
+  & .c-filter__buttons-group {
+    width: 100%;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  & .c-filter__buttons-label {
+    display: block;
+    color: $color-dark-slate;
+    @include type-headline-6;
+  }
+
+  & .c-filter__applied-options {
+    width: 100%;
+    padding-top: 6 * $indent;
+    border-top: 2px solid rgba($color-dark-slate, 0.1);
+  }
+}

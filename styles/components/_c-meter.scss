@@ -1,0 +1,73 @@
+.c-meter {
+  min-height: 18.2rem;
+  min-width: 20rem;
+  // width: 31.8rem;
+  // height: 18.2rem;
+  display: flex;
+  gap: 4 * $indent;
+  flex-direction: column;
+  padding: 6 * $indent;
+  border: 1px solid $color-dark-slate;
+  border-radius: $border-radius-m;
+  background-color: $color-bg;
+}
+
+.c-meter__labels {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.c-meter__title {
+  color: $color-dark-slate;
+  @include type-headline-6;
+}
+
+.c-meter__title {
+  color: $color-dark-slate--body;
+  @include type-paragraph-m;
+}
+
+.c-meter__range {
+  position: relative;
+  height: 3.2rem;
+}
+
+.c-meter__range-line {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  height: 1px;
+  background-color: $color-primary-black;
+}
+
+.c-meter__range-point {
+  position: absolute;
+  top: calc(50% - 2px);
+  width: 5px;
+  height: 5px;
+  background-color: $color-primary-black;
+
+  &--left {
+    left: 0;
+  }
+
+  &--right {
+    right: 0;
+  }
+}
+
+.c-meter__range-slider {
+  position: absolute;
+  top: calc(50% - 3.2rem / 2);
+  left: calc(65% - 6.7rem / 2);
+  width: 6.7rem;
+  height: 3.2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: $border-radius-m;
+  color: $color-primary-white;
+  background-color: $color-primary-black;
+  @include type-paragraph-m;
+}

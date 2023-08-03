@@ -1,0 +1,439 @@
+.c-header {
+  position: relative;
+  width: 100%;
+  min-width: 28rem;
+  height: 100%;
+  background-color: transparent;
+  // background-color: $color-bg;
+
+  &--bg-filled {
+    background-color: $color-bg;
+  }
+}
+
+.c-header__inner {
+  position: relative;
+  height: 100%;
+  padding: (8 * $indent) (14 * $indent);
+  border-bottom: 0.15rem solid $color-primary-clay--medium;
+}
+
+.c-header__logo {
+  position: relative;
+  // top: calc(50% - 10rem / 2);
+  display: block;
+  width: 15.7rem;
+  height: 10rem;
+  overflow: hidden;
+  cursor: pointer;
+
+  @include respond-to(tablet-l) {
+    width: 11.4rem;
+    height: 7.2rem;
+    top: calc(50% - 7.2rem / 2);
+  }
+
+  &--auth {
+    left: 14 * $indent;
+
+    @include respond-to(tablet-l) {
+      left: calc(50% - 11.4rem / 2);
+    }
+  }
+
+  &--unauth {
+    left: calc(50% - 15.7rem / 2);
+
+    @include respond-to(tablet-l) {
+      left: calc(50% - 11.4rem / 2);
+    }
+  }
+}
+
+.c-header__logo-img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.c-header__nav {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-end;
+
+  &--unauth {
+    flex-direction: row-reverse;
+  }
+
+  @include respond-to(tablet-l) {
+    display: none;
+  }
+}
+
+.c-header__close {
+  display: none;
+  position: absolute;
+  top: calc(50% - 5.6rem / 2);
+  right: 5 * $indent;
+  width: 5.6rem;
+  height: 5.6rem;
+  padding: 1.5rem;
+  border: 1px solid $color-primary-slate--medium;
+  border-radius: $border-radius-m;
+  cursor: pointer;
+
+  & &--icon {
+    width: 2.5rem;
+    height: 2.5rem;
+    margin: 0;
+    background-color: $color-primary-slate;
+  }
+
+  @include respond-to(tablet-l) {
+    display: block;
+  }
+}
+
+.c-header__account-menu {
+  display: flex;
+
+  & .c-header__account-link {
+    color: $color-dark-slate;
+    font-size: 1.4rem;
+  }
+
+  & .c-header__account-link:not(:last-child) {
+    margin-right: 8 * $indent;
+  }
+}
+
+.c-header__account-submenu {
+  position: absolute;
+  top: 7.1rem;
+  right: (14 * $indent);
+  padding: 6 * $indent;
+  background-color: $color-primary-black;
+  border-radius: $border-radius-m;
+  z-index: 2;
+
+  & .c-header__account-submenu-link {
+    color: $color-primary-white;
+  }
+
+  & .c-header__account-submenu-link:not(:last-child) {
+    margin-bottom: 6 * $indent;
+  }
+
+  & .c-header__account-submenu-logout {
+    border-top: 1px solid $color-primary-clay;
+    padding-top: 6 * $indent;
+    display: flex;
+    justify-content: center;
+  }
+}
+
+.c-header__main-nav-wrapper {
+  height: 100%;
+  margin-bottom: -(10 * $indent);
+  padding-bottom: (10 * $indent);
+  display: flex;
+  align-items: flex-end;
+}
+
+.c-header__nav--unauth .c-header__main-nav-wrapper {
+  width: calc(70% - 15.7rem / 2 - (12 * $indent) / 2);
+}
+
+.c-header__main-nav {
+  width: 100%;
+  display: flex;
+  padding-bottom: 2 * $indent;
+
+  & .c-header__nav-link {
+    width: auto;
+    min-width: 0;
+    color: $color-dark-slate;
+    @include type-nav;
+    @include type-overflow;
+    letter-spacing: 0;
+    text-transform: none;
+
+    &--search {
+      width: 2.8rem;
+      height: 2.8rem;
+      background-color: $color-dark-slate;
+    }
+  }
+
+  & .c-header__nav-link:not(:last-child) {
+    margin-right: 12 * $indent;
+
+    @include respond-to(desktop) {
+      margin-right: 6 * $indent;
+    }
+  }
+}
+
+.c-header__subnav {
+  display: flex;
+  gap: 6 * $indent;
+  position: relative;
+  height: auto;
+  padding: 4.5rem 7.7rem 6.9rem 10rem;
+  background-color: $color-bg;
+}
+
+.c-header__subnav--image {
+  & .c-header__subnav-type,
+  & .c-header__subnav-image {
+    width: calc(50% - (6 * $indent) / 2);
+  }
+
+  & .c-header__subnav-col-1,
+  & .c-header__subnav-col-2 {
+    width: calc(50% - (6 * $indent) / 2);
+  }
+
+  & .c-header__subnav-link {
+    min-width: 0;
+    width: auto;
+    max-width: fit-content;
+    margin-bottom: 6 * $indent;
+    @include type-overflow;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  & .c-header__subnav-image {
+    width: 65.7rem;
+    height: 100%;
+    padding: 6 * $indent;
+    border-radius: $border-radius-m;
+    background-color: $color-primary-sandstone--light;
+  }
+
+  & .c-header__subnav-subtitle {
+    margin-bottom: 4 * $indent;
+    color: $color-dark-slate;
+    @include type-headline-5;
+  }
+
+  & .c-header__subnav-cards {
+    display: flex;
+    gap: 6 * $indent;
+    height: 100%;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+  }
+
+  & .c-header__subnav-card {
+    width: calc(50% - (6 * $indent) / 2);
+    aspect-ratio: 2 / 3;
+    overflow: hidden;
+  }
+
+  & .c-header__subnav-card--small .c-header__subnav-card-caption {
+    left: 3 * $indent;
+    bottom: 2 * $indent;
+    font-size: 2rem;
+    line-height: 2.4rem;
+  }
+}
+
+.c-header__subnav--without-image {
+  min-height: 25.7rem;
+  padding-bottom: 5.2rem;
+
+  & .c-header__subnav-image {
+    display: none;
+  }
+
+  & .c-header__subnav-type {
+    width: 100%;
+  }
+
+  & .c-header__subnav-col-1 {
+    display: grid;
+    grid-template: repeat(2, 1fr) / repeat(4, 1fr);
+    gap: (6 * $indent) 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  & .c-header__subnav-col-2 {
+    display: none;
+  }
+
+  & .c-header__subnav-link {
+    margin: 0;
+  }
+}
+
+.c-header__subnav-title {
+  margin-bottom: 8 * $indent;
+  color: $color-dark-slate;
+  @include type-headline-3;
+}
+
+.c-header__subnav-links {
+  display: flex;
+  justify-content: space-between;
+}
+
+.c-header__mobile-nav {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  min-height: calc(100vh - 9.5rem);
+  background-color: $color-bg;
+
+  @include respond-from(tablet-l) {
+    display: none;
+  }
+}
+
+.c-header__mobile-main-nav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: 6.9rem (4 * $indent);
+
+  & .c-header__nav-link {
+    margin-bottom: 8 * $indent;
+    color: $color-dark-slate;
+    @include type-nav;
+    // text-transform: capitalize;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &--auth {
+    padding: (8 * $indent) (4 * $indent);
+  }
+}
+
+.c-header__mobile-account-menu {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: (12 * $indent) (6 * $indent);
+  background-color: $color-primary-sandstone--light;
+
+  & .c-header__account-link {
+    margin-bottom: 8 * $indent;
+    color: $color-dark-slate;
+    @include type-nav;
+    // text-transform: capitalize;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  & .c-header__mobile-button {
+    color: $color-dark-slate;
+  }
+}
+
+.c-header__mobile-search {
+  display: none;
+
+  @include respond-to(tablet-l) {
+    position: absolute;
+    top: calc(50% - 5.6rem / 2);
+    left: 5 * $indent;
+    display: block;
+    width: 5.6rem;
+    height: 5.6rem;
+    padding: 1.5rem;
+    border: 1px solid $color-primary-slate--medium;
+    border-radius: $border-radius-m;
+    cursor: pointer;
+
+    & .c-header__mobile-search-icon {
+      width: 2.8rem;
+      height: 2.8rem;
+      background-color: $color-primary-slate;
+    }
+  }
+}
+
+.c-header__mobile-subnav {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  height: 100%;
+  min-height: calc(100vh - 9.5rem);
+  padding: 6 * $indent;
+  background-color: $color-bg;
+  overflow: auto;
+
+  @include respond-from(tablet-l) {
+    display: none;
+  }
+}
+
+.c-header__mobile-subnav-back {
+  margin-bottom: 4 * $indent;
+}
+
+.c-header__mobile-subnav-title {
+  margin-bottom: 8 * $indent;
+  color: $color-dark-slate;
+  text-decoration: none;
+  @include type-headline-3;
+}
+
+.c-header__mobile-subnav-links {
+  & .c-header__subnav-link {
+    margin-bottom: 8 * $indent;
+  }
+
+  & .c-header__subnav-link:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.c-header__overlay {
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  background-color: transparent;
+  z-index: 1;
+
+  &--visible {
+    display: flex;
+  }
+
+  &--hidden {
+    display: none;
+  }
+}
+
+.visible {
+  display: block;
+}
+
+.hidden {
+  display: none;
+}

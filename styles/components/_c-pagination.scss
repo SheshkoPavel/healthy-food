@@ -1,0 +1,72 @@
+.c-pagination {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 6 * $indent;
+  color: $color-dark-slate;
+
+  @include respond-to(mobile) {
+    flex-direction: column;
+    gap: 5 * $indent;
+    align-items: center;
+  }
+
+  &--mobile-reverse {
+    @include respond-to(mobile) {
+      flex-direction: column-reverse;
+      gap: 4 * $indent;
+    }
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.c-pagination__page-size {
+  display: flex;
+  gap: 4 * $indent;
+  align-items: center;
+}
+
+.c-pagination__page-size-label,
+.c-pagination__pages-label {
+  @include type-headline-6;
+}
+
+.c-pagination__page-size-values {
+  display: flex;
+  gap: 2 * $indent;
+  justify-content: center;
+  align-items: center;
+}
+
+.c-pagination__page-size-value {
+  &--active {
+    box-shadow: inset 0 -2px 0 0 $color-primary-black;
+  }
+}
+
+.c-pagination__pages {
+  display: flex;
+  gap: 4 * $indent;
+  align-items: center;
+}
+
+.c-pagination__pages-items {
+  display: flex;
+  gap: 2 * $indent;
+}
+
+.c-pagination__pages-item {
+  box-shadow: none;
+
+  &--active {
+    box-shadow: inset 0 -2px 0 0 $color-primary-black;
+  }
+}
+
+.c-pagination__pages-item-ellipsis {
+  &--disabled {
+    display: none;
+  }
+}

@@ -1,0 +1,171 @@
+.r-react-select,
+.r-react-multi-select {
+  position: relative;
+  display: block;
+  width: 100%;
+  min-width: 0;
+  height: 4.8rem;
+  background-color: $color-primary-white;
+  margin: 0;
+  padding: 0 (4 * $indent);
+  box-shadow: 0 0 0 0.1rem $color-primary-slate--medium;
+  border-radius: $border-radius-m;
+  background-color: $color-primary-white;
+  color: $color-dark-slate;
+  outline: none;
+  @include type-paragraph-s;
+
+  &--is-opened {
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+    box-shadow: 0 0 0 0.15rem $color-primary-slate;
+  }
+
+  &--is-disabled {
+    background-color: hsl(0, 0%, 95%);
+  }
+}
+
+// .r-react-select--is-opened::before {
+//   display: block;
+//   position: absolute;
+//   top: 0;
+//   left: 0;
+//   content: "";
+//   width: 100%;
+//   height: 5.5rem;
+//   border-radius: $border-radius-m;
+//   box-shadow: 0 0 0 0.15rem $color-primary-slate;
+//   border-bottom-right-radius: 0;
+//   border-bottom-left-radius: 0;
+// }
+
+// placeholder
+
+.r-react-select .r-react-select__placeholder {
+  margin: 0;
+  width: auto;
+  min-width: 0;
+  @include type-overflow;
+}
+
+// icon
+
+.r-react-select__caret-icon {
+  width: 1.6rem;
+  height: 1.6rem;
+  background-color: $color-primary-slate--medium;
+  transform: none;
+  transition: transform $motion;
+
+  .r-react-select__control--menu-is-open & {
+    background-color: $color-primary-slate;
+    transform: rotateX(180deg);
+  }
+}
+
+// control
+
+.r-react-select .r-react-select__control,
+.r-react-multi-select .r-react-multi-select__control {
+  display: flex;
+  min-height: 100%;
+  border: none;
+  box-shadow: none;
+  white-space: nowrap;
+}
+
+// common values
+
+.r-react-select .r-react-select__value-container,
+.r-react-multi-select .r-react-multi-select__value-container {
+  flex-wrap: nowrap;
+  overflow: hidden;
+  padding-left: 0;
+}
+
+// multi values
+
+.r-react-select .r-react-select__multi-value {
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  line-height: 3.3rem;
+}
+
+// single alue
+
+.r-react-select .r-react-select__single-value {
+  color: $color-primary-slate--medium;
+}
+
+// menu
+
+body .r-react-select__menu-portal {
+  z-index: 1;
+}
+
+body .r-react-select__menu,
+body .r-react-multi-select__menu {
+  margin-top: 2px;
+  padding: 0;
+  left: 0;
+  border-radius: $border-radius-m;
+  border-top-right-radius: 0;
+  border-top-left-radius: 0;
+  box-shadow: 0 0 0 0.15rem $color-primary-slate;
+  overflow: hidden;
+  z-index: 1;
+}
+
+// menu-list
+
+body .r-react-select__menu-list,
+body .r-react-multi-select__menu-list {
+  max-height: 28rem;
+  padding: 0;
+  animation: height-animation $motion;
+}
+
+@keyframes height-animation {
+  0% {
+    max-height: 5rem;
+  }
+}
+
+// option
+
+body .r-react-select__option,
+body .r-react-multi-select__option {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 4rem;
+  padding: 0 1.6rem;
+  color: $color-primary-slate--medium;
+  @include type-paragraph-s;
+  @include type-overflow;
+  transition: background-color $motion;
+  cursor: pointer;
+
+  &--is-selected,
+  &--is-selected:active {
+    color: $color-primary-slate--medium;
+    background-color: $color-primary-white;
+  }
+
+  &--is-focused,
+  &--is-focused:active {
+    color: $color-dark-slate--body;
+    background-color: $color-primary-white;
+  }
+}
+
+.r-react-select__option-circle {
+  display: block;
+  width: 1.4rem;
+  height: 1.4rem;
+  background-color: $color-primary-white;
+  border-radius: 50%;
+  margin-right: 0.1rem;
+}

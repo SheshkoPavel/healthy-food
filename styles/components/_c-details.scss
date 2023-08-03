@@ -1,0 +1,57 @@
+.c-details__title {
+  margin-bottom: 6 * $indent;
+  color: $color-dark-slate;
+  @include type-headline-3;
+}
+
+.c-details__subsection {
+  margin-bottom: 7 * $indent;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.c-details__subtitle {
+  margin-bottom: 4 * $indent;
+  color: $color-dark-slate;
+  @include type-headline-5;
+}
+
+.c-details__subsection-content {
+  display: flex;
+  flex-direction: column;
+  gap: 6 * $indent;
+}
+
+.c-details__subsection-row {
+  display: flex;
+  gap: 6 * $indent;
+
+  @include respond-to(mobile) {
+    gap: 4 * $indent;
+  }
+}
+
+.c-details__subsection-column {
+  white-space: pre-wrap;
+  color: $color-dark-slate--body;
+  // text-transform: capitalize;
+  @include type-paragraph-l;
+
+  &--left {
+    width: calc(40% - (6 * $indent) / 2);
+
+    @include respond-to(mobile) {
+      width: calc(33% - (6 * $indent) / 2);
+    }
+  }
+
+  &--right {
+    width: calc(60% - (6 * $indent) / 2);
+
+    @include respond-to(mobile) {
+      width: calc(67% - (6 * $indent) / 2);
+    }
+  }
+}
