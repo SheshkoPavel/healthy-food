@@ -3,21 +3,18 @@ import React from 'react';
 import { usePageProps } from '@/hooks';
 import { ImageComponent, RichText } from '@/components';
 
-export const T4OverviewSection = () => {
+export const T4OverviewSection = ({ data }: any) => {
   const { contentStack } = usePageProps();
   const { pageData } = contentStack;
 
   if (!pageData) { return <div>Error get data from server</div> }
 
   const {
-    overview,
-    overview: {
-      visible,
-      title,
-      headline_copy,
-      image,
-    }
-  }: any = pageData;
+    visible,
+    title,
+    headline_copy,
+    image,
+  }: any = data;
 
   if (!visible) { return null }
 
