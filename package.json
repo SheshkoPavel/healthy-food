@@ -16,6 +16,7 @@
   "dependencies": {
     "@apollo/client": "^3.7.9",
     "@contentstack/json-rte-serializer": "^2.0.2",
+    "@contentstack/live-preview-utils": "^1.3.2",
     "@types/node": "18.11.11",
     "@types/react": "18.0.26",
     "@types/react-dom": "18.0.9",

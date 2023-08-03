@@ -1,11 +1,24 @@
 import { Stack as StackStack } from 'contentstack';
 import { getAvailabelItems } from '@/utils';
 
-const Stack = StackStack({
+const Stack: any = StackStack({
   api_key: process.env.CONTENTSTACK_API_KEY,
   delivery_token: process.env.DELIVERY_TOKEN,
   environment: process.env.ENVIRONMENT,
+  live_preview: {
+    host: 'api.contentstack.io',
+    management_token: 'cs6c9584d99f6aac5f4163f503',
+    enable: true,
+  },
 });
+
+import ContentstackLivePreview from "@contentstack/live-preview-utils";
+ContentstackLivePreview.init();
+
+// import ContentstackLivePreview from "@contentstack/live-preview-utils";
+// ContentstackLivePreview.init({
+//     stackSdk: Stack,
+//    });
 
 const getPageData = async (content_type_uid: string, uid: string) => {
   let content: any[] = [];
@@ -418,4 +431,5 @@ export {
   getContentstackContent,
   getPageData,
   getPageEntityUsingSDK,
+  Stack,
 };
