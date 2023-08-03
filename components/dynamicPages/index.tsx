@@ -57,6 +57,10 @@ export const DynamicPage = () => {
     return <FoodHome />
   }
 
+  if (content_type_uid === 'page_type_2') {
+    return <TemplateT6Dynamic />
+  }
+
 
   return (
     <div>
