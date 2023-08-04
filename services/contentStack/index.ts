@@ -1,4 +1,5 @@
 import { Stack as StackStack } from 'contentstack';
+
 import { getAvailabelItems } from '@/utils';
 
 const Stack: any = StackStack({
@@ -196,10 +197,10 @@ const getContentstackContent = async (contentType: string, entry: string) => {
   return content;
 };
 
-const getContentstackContentByUrl = async (content_type_uid: string, url: string) => {
+const getContentstackContentByUrl = async (content_type_uid: string, url: string, lang = 'en-us') => {
   let content: any[] = [];
 
-  const Query = Stack.ContentType(content_type_uid).Query()
+  const Query = Stack.ContentType(content_type_uid).Query().language(lang)
     .where('url', `${url}`)
     .includeReference([
       'footer',
@@ -380,14 +381,14 @@ const getContentstackContentByUrl = async (content_type_uid: string, url: string
 
 
 
-const getPageEntityUsingSDK = (urlWithQuery: string, isAuthorized: boolean) => {
+const getPageEntityUsingSDK = (urlWithQuery: string, isAuthorized: boolean, lang = 'en-us') => {
   const url = (urlWithQuery || '').split('?')[0]
 
   console.log(url)
 
   return Promise.all([
-    getContentstackContentByUrl('page_type_1', url),
-    getContentstackContentByUrl('page_type_2', url),
+    getContentstackContentByUrl('page_type_1', url, lang),
+    getContentstackContentByUrl('page_type_2', url, lang),
   ])
     .then((res) => {
       const result = res.reduce((acc, el) => {

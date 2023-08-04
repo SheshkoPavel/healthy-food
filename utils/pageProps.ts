@@ -140,7 +140,6 @@ export const getPageProps = (object: any) => {
         props: {
           ...res,
           env: process.env.ENVIRONMENT,
-          management: process.env.LIVE_PREVIEW_MANAGEMENT_TOKEN,
           errors,
         },
       };

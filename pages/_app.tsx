@@ -34,7 +34,7 @@ export default function App({ Component, pageProps }: AppProps) {
   useEffect(() => {
     window.addEventListener('message', (e) => {
       const { data, from, type } = e.data
-      console.log(e)
+      // console.log(e)
     });
   }, [])
 

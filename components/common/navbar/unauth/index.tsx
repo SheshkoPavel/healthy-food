@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { observer } from 'mobx-react-lite';
 import classNames from 'classnames';
+import { setCookie, deleteCookie } from 'cookies-next';
 
 import { usePageProps } from '@/hooks';
 import { getAvailabelItems } from '@/utils';
@@ -10,7 +11,8 @@ import { navbarState } from '@/store';
 import { ImageComponent } from '@/components/imageComponent';
 
 export const UnauthNavbar = observer(() => {
-  const { contentStack, showLayoutPattern = false } = usePageProps();
+  const { contentStack, showLayoutPattern = false, context } = usePageProps();
+  const currentLang = context.req.cookies.lang || 'en-us';
   const {
     pageData,
   } = contentStack || {};
@@ -82,6 +84,17 @@ export const UnauthNavbar = observer(() => {
     }
   };
 
+  const setFrLang = () => {
+    deleteCookie('lang');
+    setCookie('lang', 'fr-fr');
+    router.push(context.resolvedUrl);
+  };
+  const setEnLang = () => {
+    deleteCookie('lang');
+    setCookie('lang', 'en-us');
+    router.push(context.resolvedUrl);
+  };
+
   return (
     <div className='l-layout__header'>
 
@@ -97,6 +110,15 @@ export const UnauthNavbar = observer(() => {
           </div>
 
           <div className={'c-header__nav c-header__nav--unauth'}>
+
+            <div style={{ display: 'flex', margin: 5 }}>
+              <div className={`c-button-food ${currentLang === 'fr-fr' ? '' : 'c-button--outlined--noTransition'}`} onClick={setFrLang} >
+                <span className="c-button__label">Fr</span>
+              </div>
+              <div className={`c-button-food ${currentLang === 'en-us' ? '' : 'c-button--outlined--noTransition'}`} onClick={setEnLang} >
+                <span className="c-button__label">En</span>
+              </div>
+            </div>
 
             <Link href={'/'}>
               <div>
@@ -115,6 +137,7 @@ export const UnauthNavbar = observer(() => {
                   {navLinks}
                 </>
               </div>
+
             </div>
           </div>
 

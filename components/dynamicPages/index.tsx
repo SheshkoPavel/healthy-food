@@ -76,7 +76,9 @@ const checkIfAuthorized = (context: Context) => {
 export const getDynamicServerSideProps: GetServerSideProps = async (context) => {
   const isAuthorized = checkIfAuthorized(context);
 
-  return await getPageEntityUsingSDK(context.resolvedUrl, isAuthorized)
+  const lang = context.req.cookies.lang || 'en-us';
+
+  return await getPageEntityUsingSDK(context.resolvedUrl, isAuthorized, lang)
     .then((res: any) => {
       const { data, error } = res;
 
